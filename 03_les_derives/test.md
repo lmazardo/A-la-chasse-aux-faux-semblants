@@ -1,5 +1,4 @@
-# Life is short
+# Les dérives
 
-- so keep your audience awake!
+- constat : il y a en beaucoup
 
-    ![](http://i.imgur.com/qBO9K.jpg)
