@@ -1,3 +1,5 @@
-  apt-get install pandoc
-  make
+```bash
+    apt-get install pandoc
+    make
+```
 
