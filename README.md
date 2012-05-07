@@ -1,8 +1,8 @@
 INSTALL
 =======
-Prerequis : pandoc >= 1.9
+Prerequis : pandoc >= 1.9, landslide
 ```bash
-    apt-get install pandoc
+    apt-get install pandoc python-landslide
     make
 ```
 Slides pour la [conf agile france 2012].
