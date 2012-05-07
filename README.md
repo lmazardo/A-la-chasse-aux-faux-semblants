@@ -1,4 +1,3 @@
-A-la-chasse-aux-faux-semblants
-==============================
+  apt-get install pandoc
+  make
 
-A la chasse aux faux semblants
