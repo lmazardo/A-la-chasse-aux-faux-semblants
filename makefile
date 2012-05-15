@@ -6,7 +6,11 @@ other:
 	pandoc -s -S -i -t dzslides -c style.css $(FILES) -o prez.html
 	pandoc -s -S -i -t s5 $(FILES) -o prez-s5.html
 
-landslide:
+landslide: dirty_cp
 	landslide landslide.cfg
+
+dirty_cp:
+	cp -r themes /tmp
+
 clean:
 	rm prez.html prez-s5.html prez-html5slide.html
