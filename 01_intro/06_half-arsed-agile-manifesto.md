@@ -1,6 +1,6 @@
-#Manifesto for Half-Arsed Agile Software Development
+# insérer directement la page ??
 
-insérer directement la page ??
+Manifesto for Half-Arsed Agile Software Development
 
 We have heard about new ways of developing software by
 paying consultants and reading Gartner reports. Through
