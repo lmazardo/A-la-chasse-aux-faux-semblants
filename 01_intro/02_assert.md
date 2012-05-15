@@ -1,7 +1,9 @@
 # 
 
 	!java
-	 @Test
-	 public void testConstructor() {
-	    assertNotNull(new Constructor());
+	@Test
+	public void testAdminAdvanceBean() {
+		assertNotNull(this.adminAdvanceBean);
+		assertNotNull(new AdminAdvanceBean());
 	}
+
