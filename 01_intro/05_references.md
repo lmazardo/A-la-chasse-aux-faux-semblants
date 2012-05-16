@@ -8,4 +8,4 @@ http://fr.wikipedia.org/wiki/Culte_du_cargo
 * Cargo cult programming
 * Cargo cult software engineering
 * Scrum but(t)
-* Arxta
+* AR⊗TA
