@@ -1,6 +1,3 @@
-#fail 1
+# Faire du chiffre (story point)
 
 .fx: fail
-
-* Faire du chiffre (story point)
-
