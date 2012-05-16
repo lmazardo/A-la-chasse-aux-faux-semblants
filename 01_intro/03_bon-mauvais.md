@@ -1,2 +1,5 @@
 #
-<img width="700" src="le-bon-le-mauvais-chasseur.jpg"/>
+.fx: fullimage
+
+![le bon et le mauvais agiliste](images/le-bon-le-mauvais-chasseur-small.jpg)  
+

@@ -540,3 +540,11 @@ div.slide div.presenter_notes {
   z-index: 64;
   display: none;
 }
+
+.baseStyles {
+	margin: 0; padding: 0; border: none; width: 800px; height: 600px; 
+}
+
+.iframe {
+	margin: 0; padding: 0;
+}
