@@ -2,4 +2,6 @@
 
 .fx: fail
 
-## #fail (3)
+.notes: les gens sont debouts...
+
+## #fail *(5)*

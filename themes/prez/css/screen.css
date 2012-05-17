@@ -582,7 +582,7 @@ div.long-title section {
 }
 
 div.fail h1 {
-  line-height: 180%;
+  line-height: 120%;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -595,7 +595,7 @@ div.fail h1 {
 
 div.fail h2 {
   line-height: 180%;
-  text-align: center;
+  text-align: right;
   display: table-cell;
   vertical-align: middle;
   height: 700px;
