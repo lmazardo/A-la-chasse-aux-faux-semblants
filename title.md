@@ -6,3 +6,6 @@
 
 ## La conférence Agile France 2012 ##
 
+----
+# qui sommes nous ?
+

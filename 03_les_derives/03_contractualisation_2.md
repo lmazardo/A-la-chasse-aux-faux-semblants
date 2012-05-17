@@ -1,5 +1,5 @@
 # Contract negotiation over customer collaboration
-.fx: fail
+.fx: long-title 
 
 ### US
 
