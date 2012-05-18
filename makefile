@@ -12,5 +12,7 @@ landslide: dirty_cp
 dirty_cp:
 	cp -r themes /tmp
 
+clean-other:
+	rm prez.html prez-s5.html 
 clean:
-	rm prez.html prez-s5.html prez-html5slide.html
+	rm prez-html5slide.html

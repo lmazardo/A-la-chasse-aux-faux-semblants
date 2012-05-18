@@ -1,3 +1,5 @@
 #
+.fx: fullimage
 
-![](le-bon-le-mauvais-chasseur.jpg)
+![le bon et le mauvais agiliste](../images/le-bon-le-mauvais-chasseur-small.jpg)  
+

@@ -1,3 +1,5 @@
-#
+# daily
 
-![picture alt](02_les_bons_points/01_daily/daily-small.jpg "no title")  
+.fx: fullimage
+
+![ce que j'ai terminé hier, ce que je vais terminé aujourd'hui, ce qui me bloque](images/daily-small.jpg)  

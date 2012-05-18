@@ -1,0 +1,12 @@
+digraph simple_hierarchy {
+
+D [label="Daily"]     
+CR [label="Compte rendu d'activité"]
+SA [label="Partager l'avancement / Maintenir le cap"]
+
+V [label="Visibilité"]
+D->CR 
+D->SA
+CR->SA [color=red]
+SA->V
+}

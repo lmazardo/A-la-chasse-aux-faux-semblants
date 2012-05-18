@@ -1,4 +1,5 @@
 # 
+.fx: center-code
 
 	!java
 	@Test
