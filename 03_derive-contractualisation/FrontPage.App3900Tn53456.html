@@ -1,0 +1,118 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>FrontPage.App3900Tn53456</title><link rel="stylesheet" type="text/css" href="FrontPage.App3900Tn53456_fichiers/fitnesse.css" media="screen"><link rel="stylesheet" type="text/css" href="FrontPage.App3900Tn53456_fichiers/fitnesse_print.css" media="print"><script src="FrontPage.App3900Tn53456_fichiers/fitnesse.asc" type="text/javascript"></script></head><body>
+	<style>
+div.mainbar {
+    left: 0;
+}	
+</style>
+
+<div class="mainbar">
+			<div class="header">
+				<a href="https://ice.multimediabs.com/3900/fitnesse/FrontPage">FrontPage</a>.
+<h2>Fiche <a href="https://servicedesk.cvf.fr/browse/TNPLUS-53">TNPLUS-53</a></h2><h2>En
+ tant qu'utilisateur appelant le service depuis un n° non valide, si je 
+demande une assistance technique et que je saisis en DTMF un numéro 
+valide alors on me demande d'exprimer la raison de mon appel.</h2><h2>Fiche <a href="https://servicedesk.cvf.fr/browse/TNPLUS-54">TNPLUS-54</a></h2><h2>En
+ tant qu'utilisateur appelant le service depuis un n° non valide si je 
+demande une assistance technique et que je saisis en DTMF un n° non 
+valide alors on me demande de ressaisir mon n° de téléphone</h2><h2>Fiche <a href="https://servicedesk.cvf.fr/browse/TNPLUS-55">TNPLUS-55</a></h2><h2>En
+ tant qu'utilisateur appelant le service depuis un n° non valide, si je 
+demande une AT, que je saisis en DTMF un n° non valide une première fois
+ puis un n° valide la deuxième fois alors on me demande d'exprimer la 
+raison de mon appel.</h2><h2>Fiche <a href="https://servicedesk.cvf.fr/browse/TNPLUS-56">TNPLUS-56</a></h2><h2>En
+ tant qu'utilisateur appelant le service depuis un n° non valide, si je 
+demande une AT, que je saisis deux fois de suite en DTMF un numéro non 
+valide alors on me demande d'exprimer la raison de mon appel.</h2><br><table border="1" cellspacing="0">
+<tbody><tr><td colspan="4">Saisie DTMF</td>
+</tr>
+<tr><td>numero appelant</td>
+<td>cinématique</td>
+<td>Prompts entendus</td>
+<td>validation Prompts Entendus?</td>
+</tr>
+<tr><td>0656019813</td>
+<td>Appel-Silence-Prononcepanne-SaisisND0000000000</td>
+<td>IDENT_SAISIE_ND.wav,IDENT_SAISIE_ND_APRESERREUR.wav</td>
+<td>true</td>
+</tr>
+<tr><td>0656019813</td>
+<td>Appel-Silence-Prononcepanne</td>
+<td>IDENT_SAISIE_ND.wav,</td>
+<td>true</td>
+</tr>
+<tr><td>0656019813</td>
+<td>Appel-Silence-Prononcepanne-SaisisND0123456789</td>
+<td>IDENT_SAISIE_ND.wav,AT_INVIT_LN.wav,A_VOUS.wav</td>
+<td>true</td>
+</tr>
+<tr><td>0123456789</td>
+<td>Appel-Silence-Prononcepanne-Prononcenon</td>
+<td>EchoND0-TTS,IDENT_SAISIE_ND.wav</td>
+<td>true</td>
+</tr>
+<tr><td>0123456789</td>
+<td>Appel-Silence-Prononcepanne-Prononcenon-SaisisND0223456789</td>
+<td>EchoND0-TTS,IDENT_SAISIE_ND.wav,AT_INVIT_LN.wav,A_VOUS.wav</td>
+<td>true</td>
+</tr>
+<tr><td>blank</td>
+<td>Appel-Silence-Prononcepanne</td>
+<td>IDENT_SAISIE_ND.wav</td>
+<td>true</td>
+</tr>
+<tr><td>blank</td>
+<td>Appel-Silence-Prononcepanne-SaisisND0634567890</td>
+<td>IDENT_SAISIE_ND.wav,IDENT_SAISIE_ND_APRESERREUR.wav</td>
+<td>true</td>
+</tr>
+<tr><td>blank</td>
+<td>Appel-Silence-Prononcepanne-SaisisND0634567890-SaisisND0123456789</td>
+<td>IDENT_SAISIE_ND.wav,IDENT_SAISIE_ND_APRESERREUR.wav,AT_INVIT_LN.wav,A_VOUS.wav</td>
+<td>true</td>
+</tr>
+<tr><td>blank</td>
+<td>Appel-Silence-Prononcepanne-SaisisND0634567890-SaisisND0634567890</td>
+<td>IDENT_SAISIE_ND.wav,IDENT_SAISIE_ND_APRESERREUR.wav,AT_INVIT_LN.wav,A_VOUS.wav</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<br><h2>TNPLUS-53</h2><br>Test1<br>J'appelle le service avec un numéro de mobile<br>je demande l'assistance technique<br>le service me demande de saisir mon ND en DTMF<br>je saisie un numéro valide non profil master<br>je suis invité à m'exprimer en LN<br><br>Test2<br><br>J'appelle le service avec un numéro valide<br>je demande l'assistance technique<br>je ne confirme pas mon numéro<br>le service me demande de saisir mon ND en DTMF<br>je saisie un numéro valide non profil master<br>je suis invité à m'exprimer en LN<br><br><h2>TNPLUS-54</h2><br>Test 1<br>j'appelle depuis un numéro non valide,<br>demande une assistance technique,<br>j'entends le prompt AT_SAISIE_ND<br>je saisis un numéro DTMF non valide,<br>le service me diffuse le prompt AT_SAISIE_ND2<br><br><br><h2>TNPLUS-55</h2><br>Test 1<br>j'appelle depuis un numéro non valide,<br>demande une assistance technique,<br>j'entends le prompt AT_SAISIE_ND<br>je saisis un numéro DTMF non valide,<br>le service me diffuse le prompt AT_SAISIE_ND2<br>je saisis un numéro DTMF valide<br>Je suis invité à m'exprimer en langage naturel<br><br><h2>TNPLUS-56</h2><br>Test 1<br>j'appelle depuis un numéro non valide,<br>demande une assistance technique,<br>j'entends le prompt AT_SAISIE_ND<br>je saisis un numéro DTMF non valide,<br>le service me diffuse le prompt AT_SAISIE_ND2<br>je saisis un numéro DTMF non valide<br>Je suis invité à m'exprimer en langage naturel<br><br><span class="note">consolidée le 19/08/2009</span><br><div class="footer">
+<a href="https://ice.multimediabs.com/3900/fitnesse/FrontPage">Front Page</a> | <a href="https://ice.multimediabs.com/3900/fitnesse/FitNesse.UserGuide">User Guide</a><br><a href="https://ice.multimediabs.com/3900/fitnesse/root">root</a> (for global !path's, <i>etc.</i>)<br></div>
+<div id="addChildPopup" class="popup_window">
+  <div class="popup_title">Add Child Page to App3900Tn53456</div>
+  <div class="popup_content">
+    <form action="FrontPage.App3900Tn53456" method="get">
+      <input name="responder" value="addChild" type="hidden">
+      <table border="0" height="100%" width="100%" cellspacing="0">
+        <tbody><tr>
+          <td>
+            <input name="pageType" value="Normal" type="radio"> Normal<br>
+            <input name="pageType" value="Test" type="radio"> Test<br>
+            <input name="pageType" value="Suite" type="radio"> Suite<br>
+            <input name="pageType" value="Default" checked="checked" type="radio"> Default<br>
+          </td>
+          <td>
+            <input size="50" id="childName" name="name" type="text"><table border="0" width="100%" cellspacing="0">
+              <tbody><tr>
+                <td><label for="childName">Name</label></td>
+              </tr>
+              <tr>
+                <td><label for="childContent">Content</label></td>
+                <td><input size="50" id="childContent" name="content" value="!contents" type="text"></td>
+              </tr>
+            </tbody></table>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input value="Cancel" onclick="popdown('addChildPopup')" type="button">
+            <input value="Add" type="submit">
+          </td>
+        </tr>
+      </tbody></table>
+    </form>
+  </div>
+</div></div>
+		</div>
+	</body></html>
