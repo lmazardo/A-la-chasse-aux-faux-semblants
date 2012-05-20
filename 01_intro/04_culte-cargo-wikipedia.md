@@ -5,3 +5,5 @@
 ![cargo cult plane](images/Cargo-Cult.jpg)
 
 [http://fr.wikipedia.org/wiki/Culte_du_cargo](![http://fr.wikipedia.org/wiki/Culte_du_cargo)
+
+.notes: ne sommes-nous pas parfois conduits à appliquer des méthodes par mimétisme, sans réelle réflexion sur le bien-fondé de nos démarches, en pratiquant une sorte de pensée magique alias pensée sauvage5 ?

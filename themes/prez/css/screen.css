@@ -623,3 +623,12 @@ blockquote {
   border-left: 3px solid #ccc;
 }
  
+
+div.bigbullet div.inner section ul li {
+    color: #555753 !important;
+    font-size: 200% !important;
+}
+
+div.center section {
+    margin-top:300px;
+}
