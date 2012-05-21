@@ -12,13 +12,13 @@
 .fx: fail
 
 ---
-.fx: fullimage
+.fx: image-withoutborder
 
 ![ce que j'ai terminé hier, ce que je vais terminé aujourd'hui, ce qui me bloque](images/daily-small.jpg)
 
 ---
-# Le daily, à quoi ça sert ?
-.fx: long-title
+#0
+.fx: notitle
 
 ## Point de synchronisation d'une équipe auto-organisée
 

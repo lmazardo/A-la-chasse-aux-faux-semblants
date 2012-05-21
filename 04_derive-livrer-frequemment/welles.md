@@ -61,7 +61,3 @@ des livraisons fréquentes
 
 ![on avait juste oublié un truc](images/welles-not-done.svg)
 
----
-
-GUIDE VOCAL : livrer fréquemment mais de toute façon VABF et de toute façon dans 6 mois alors je ne m'intéresse pas vraiment à ce que vous faites... on verra dans 6 mois
-

@@ -4,8 +4,6 @@ A la chasse aux faux semblants
 
 ## Pascal Grange - Luc Mazardo ##
 
-## La conférence Agile France 2012 ##
-
 .notes:Nous avons essayé d'appliquer le manuel à la lettre : daily, démo/rétro, itérations courtes, post-its, product owner ... . Mais tout n'a pas fonctionné comme sur des roulettes.
 
 .notes: Nous allons faire un retour d'expériences sur nos pratiques «agiles» des années précédentes. Énumérer ce qui a réussi, parler de ce qui n'a pas fonctionné. Philosopher sur les dérives d'une généralisation agile. L'agilité nous a permis de gagner des contrats, de démarrer plus vite mais nous a-t-elle permis de réussir nos projets ? Nous allons essayer de creuser pourquoi fait on les choses ?

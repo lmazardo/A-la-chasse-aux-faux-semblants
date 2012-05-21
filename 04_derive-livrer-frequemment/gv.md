@@ -1,0 +1,7 @@
+# 6 mois de développement
+
+.fx: bigbullet
+
+* **V**érification d'**A**ptitude au **B**on **F**onctionnement prévue dans 6 mois
+* Le client ne trouve pas d'intéret à tester avant
+

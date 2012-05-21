@@ -95,6 +95,14 @@ div.home header h1,div.fail header h1{
   text-align:center;
 }
 
+div.home header h1 {
+    margin-top: 48%;
+}
+
+div.slide.home {
+    background: url(background_title.jpg);
+}
+
 div.fail header h1{
   font-size:130%;
 }
@@ -598,7 +606,8 @@ section img{
   border-radius: 12px; 
 }
 
-div.fullimage img {
+div.image-withoutborder img {
+    border:none;
 }
 
 div.iframe section {

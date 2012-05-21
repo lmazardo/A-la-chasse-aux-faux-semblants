@@ -37,4 +37,4 @@
 * Intégration continue
 
 ---
-# Client satisfait
+# un client satisfait
