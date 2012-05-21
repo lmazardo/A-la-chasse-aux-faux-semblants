@@ -23,8 +23,10 @@
 
 .fx: bigbullet center
 
-* Formalisation du besoin en user story en CAPICA
+* Expression du besoin en user story
 * Augmenter la fréquence de livraison
+
+.notes: Utilisation des CAPICAs C pour Contexte, A pour Acteur, P pour Problème, I pour Interaction, C pour Conséquence, A pour Alternative
 
 ---
 # Solutions mise en place
