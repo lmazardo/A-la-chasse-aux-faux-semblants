@@ -1,6 +1,6 @@
 #Accompagnement
 
-.fx: bigbullet
+.fx: manybullets
 
 * Formations
 

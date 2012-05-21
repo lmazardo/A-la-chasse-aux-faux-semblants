@@ -15,14 +15,14 @@ header h1, header h2, header h3, header h4, header h5, header h6 {
 }
 
 section h1, section h2, section h3, section h4, section h5, section h6 {
-    color: #3465a4 !important;
+    color: #000 !important;
 }
 
 img { display: block; margin: auto; }
 
 body {
   font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-  background: -webkit-gradient(linear, left bottom, left top, from(#fff), to(#E9E9E9));
+  background: -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#E9E9E9));
   background: -moz-linear-gradient(bottom, #E9E9E9, #FFF);
   background-color: #E9E9E9;
   padding: 0;
@@ -36,7 +36,7 @@ div.presentation {
   display: table-cell;
   vertical-align: middle;
   height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#2e3436), to(#E9E9E9));
+  background: -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#E9E9E9));
   background: -moz-linear-gradient(bottom, #E9E9E9, #FFF);
   background-color: #E9E9E9;
 }
@@ -56,7 +56,7 @@ div.slides.nocontext {
   overflow: hidden;
   position: relative;
   left: auto;
-  top: auto;
+<  top: auto;
 }
 
 div.slide {
@@ -88,22 +88,39 @@ div.slide {
   -webkit-box-shadow: 0 0 5px 5px #E9E9E9;
 }
 
-div.home header h1{
+div.home header h1,div.fail header h1{
   border: none;
   margin-top:25%;
   font-size:150%;
   text-align:center;
 }
-div.home section{
+
+div.fail header h1{
+  font-size:130%;
+}
+
+
+div.home section,div.fail section{
   float:right;
   margin:10px 0;
 }
-div.home section h2{
-  color:#C9C9C9 !important;
+div.home section h2,div.fail section h2{
+  color:#000 !important;
   text-shadow: none;
   margin:0;
+  text-align:right;
 }
 
+div.fail section h2{
+  color:#000 !important;
+}
+
+div.fail section h3 {
+    color: #000000 !important;
+    font-size: 170%;
+    margin: 0 50px 10px;
+    text-shadow: none;
+}
 
 div.slide p {
   font-size: 20px;
@@ -170,9 +187,7 @@ section, .slide header:only-child h1 {
   font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   color: #3f3f3f;
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 100px;
+  margin: 50px auto 0;
   display: block;
   overflow: hidden;
 }
@@ -222,8 +237,7 @@ li {
   height: 700px;
   width: 900px;
   font-size: 50px;
-  margin-top:100px;
-  margin-bottom:100px;
+  
 }
 
 body .slide .inner {
@@ -562,18 +576,16 @@ div.slide div.presenter_notes {
 }
 
 .baseStyles {
-	margin: 0; padding: 0; border: none; width: 800px; height: 600px; 
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  width: 800px;
+  height: 600px; 
 }
 
 .iframe {
 	margin: 0; padding: 0;
-}
-
-div.home h1 {
-    font-size:150%;
-}
-div.home section {
-    margin-top: 500px;
 }
 
 section img{
@@ -587,8 +599,6 @@ section img{
 }
 
 div.fullimage img {
-	margin-top: 20px;
-	margin-bottom: 30px;
 }
 
 div.iframe section {
@@ -596,34 +606,12 @@ div.iframe section {
 }
 
 div.long-title section {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
-div.fail h1 {
-  line-height: 120%;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  height: 700px;
-  width: 900px;
-  font-size: 50px;
-  margin-top:100px;
-  margin-bottom:100px;
-}
 
-div.fail h2 {
-  line-height: 180%;
-  text-align: right;
-  display: table-cell;
-  vertical-align: middle;
-  height: 700px;
-  width: 900px;
-  font-size: 25px;
-  margin-top:100px;
-  margin-bottom:100px;
-}
 
-pre {
+div.center-code pre {
     border: 1px solid #888888;
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.1) !important;
@@ -644,13 +632,51 @@ blockquote {
 
 div.bigbullet div.inner section ul li {
     color: #555753 !important;
-    font-size: 200% !important;
+    font-size: 190% !important;
+    margin: 10px 0;
+    padding: 20px 0;
+}
+
+div.manybullets div.inner section ul li {
+    color: #555753 !important;
+    font-size: 180% !important;
+    margin: 10px 0;
+    padding: 20px 0;
+}
+
+div.manybullets div.inner section ul li p {
+    margin: 0;
 }
 
 div.center section {
-    margin-top:300px;
+    margin-top:180px;
 }
 
 div.notitle h1 {
 	display:none;
 }
+
+
+div.use-case pre {
+    border: 1px solid #888888;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1em 1em 1em 1em;
+    font-size: 150%;
+    padding: 1em !important;
+    width: auto !important;
+    white-space: pre-wrap;
+}
+
+.green {
+    color: #22aa22;
+}
+
+.red {
+    color: #ffaa22;
+}
+
+.blue {
+    color: #2222ee;
+}
+
