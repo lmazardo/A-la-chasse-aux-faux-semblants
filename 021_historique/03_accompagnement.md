@@ -1,5 +1,7 @@
 #Accompagnement
 
+.fx: bigbullet
+
 * Formations
 
 * Conférences
