@@ -4,7 +4,7 @@
 
 .notes: les gens sont debouts
 
-## #fail *(5)*
+## #fail
 
 ---
 # Celui qui parle, celui qui réfléchit

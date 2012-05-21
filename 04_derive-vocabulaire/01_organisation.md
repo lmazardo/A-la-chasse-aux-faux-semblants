@@ -2,7 +2,7 @@
 
 .fx: fail
 
-## #fail *(2)*
+## #fail
 
 ---
 
