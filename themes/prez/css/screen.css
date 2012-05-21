@@ -632,3 +632,7 @@ div.bigbullet div.inner section ul li {
 div.center section {
     margin-top:300px;
 }
+
+div.notitle h1 {
+	display:none;
+}

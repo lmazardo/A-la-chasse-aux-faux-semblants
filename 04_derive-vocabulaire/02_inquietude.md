@@ -1,5 +1,4 @@
-#_
-
+#
 ## Excellente visibilité à l'engagement
 
 .fx: notitle
