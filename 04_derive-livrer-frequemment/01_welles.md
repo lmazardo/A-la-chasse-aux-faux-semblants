@@ -4,11 +4,11 @@
 
 un PO qui avait les mains libres... c'est rare !
 
-experts vidéo, experts flah, experts backend, ergonomes et designers tous réunis !
+experts vidéo, experts flash, experts backend, ergonomes et designers tous réunis !
 
 On avait même des montées en compétences transverses
 
-des itérations de 2 semaines -> planning / démo / rétro
+des itérations de 3 semaines -> planning / démo / rétro
 
 des rencontres fréquentes entre l'équipe de développement et le PO
 
