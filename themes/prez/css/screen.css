@@ -604,6 +604,7 @@ div.fail h2 {
   margin-top:100px;
   margin-bottom:100px;
 }
+
 pre {
     border: 1px solid #888888;
     padding: 2px;
@@ -612,4 +613,22 @@ pre {
     font-size: 200%;
     padding: 1em !important;
     width: auto !important;
+}
+
+blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
+ 
+
+div.bigbullet div.inner section ul li {
+    color: #555753 !important;
+    font-size: 200% !important;
+}
+
+div.center section {
+    margin-top:300px;
 }
