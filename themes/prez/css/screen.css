@@ -8,12 +8,15 @@ p, ul, li {
 }
 
 header h1, header h2, header h3, header h4, header h5, header h6 {
-    color: #204a87 !important;
-    font-weight: bold !important;
+  color: #000 !important;
+  font-weight: bold !important;
+  padding: 0 0 5px;
+  border-bottom: 1px solid #000;
 }
 
+
 section h1, section h2, section h3, section h4, section h5, section h6 {
-    color: #3465a4 !important;
+    color: #000 !important;
 }
 
 img { display: block; margin: auto; }
@@ -546,6 +549,31 @@ div.slide div.presenter_notes {
 
 .iframe {
 	margin: 0; padding: 0;
+}
+div.home header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:150%;
+  text-align:center;
+}
+div.presentation div.slides div.slide-wrapper div.home div.inner header {
+    padding-top: 255px;
+}
+
+div.fail header h1{
+  border: none;
+  margin-top:25%;
+  font-size:120%;
+  text-align:center;
+}
+
+
+div.home header h1 {
+    margin-top: 48%;
+}
+
+div.slide.home {
+    background: url(background_title.jpg);
 }
 
 div.home h1 {
