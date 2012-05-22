@@ -634,6 +634,8 @@ div.fail h2 {
   font-size: 25px;
   margin-top:100px;
   margin-bottom:100px;
+  padding-top:20px;
+
 }
 
 pre {
