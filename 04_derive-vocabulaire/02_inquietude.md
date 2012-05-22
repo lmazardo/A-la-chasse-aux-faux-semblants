@@ -1,7 +1,9 @@
-#
+#o
+.fx: notitle
+
 ## Excellente visibilité à l'engagement
 
-.fx: notitle
+
 
 ## Impression de lenteur
 
