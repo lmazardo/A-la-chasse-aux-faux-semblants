@@ -3,10 +3,11 @@
 .fx: manybullets
 
 * Formations
-
-* Conférences
-
+	* TDD, scrum, recueil du besoin, core protocols
+* Conférences et non conférences
+	* XP days, Agile France, Agile Tour, AYE, Qcon, Agile Open
 * Auto-formation
+	* 4h par mois pour chaque dev : dojo, ateliers
 
 * Livres
 

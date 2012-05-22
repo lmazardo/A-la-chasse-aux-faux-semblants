@@ -674,12 +674,18 @@ div.bigbullet div.inner section ul li {
 div.manybullets div.inner section ul li {
     color: #555753 !important;
     font-size: 180% !important;
-    margin: 10px 0;
-    padding: 20px 0;
+    margin: 3px 0;
+    padding: 10px 0;
 }
 
 div.manybullets div.inner section ul li p {
     margin: 0;
+}
+
+div.manybullets div.inner section ul li ul li {
+    font-size: 60% !important;
+    color: #555753 !important;
+    list-style-type: none;
 }
 
 div.center section {
