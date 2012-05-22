@@ -2,23 +2,27 @@
 
 ---
 
-un PO qui avait les mains libres... c'est rare !
+.notes: un PO qui avait les mains libres... c'est rare !
 
-experts vidéo, experts flash, experts backend, ergonomes et designers tous réunis !
+.notes: experts vidéo, experts flash, experts backend, ergonomes et designers tous réunis !
 
-On avait même des montées en compétences transverses
+.notes: On avait même des montées en compétences transverses
 
-des itérations de 3 semaines -> planning / démo / rétro
+.notes: des itérations de 3 semaines -> planning / démo / rétro
 
-des rencontres fréquentes entre l'équipe de développement et le PO
+.notes: des rencontres fréquentes entre l'équipe de développement et le PO
 
-une équipe motivée
+.notes: une équipe motivée
 
-une montée en puissance progressive de l'équipe pour atteindre 20 personnes en scrum de scrum avec un backlog commun
+.notes: une montée en puissance progressive de l'équipe pour atteindre 20 personnes en scrum de scrum avec un backlog commun
 
-une version initiale prête en 3 mois avec une équipe de 5 personnes
+.notes: une version initiale prête en 3 mois avec une équipe de 5 personnes
 
-des livraisons fréquentes
+.notes: des livraisons fréquentes
+
+.fx: fullimage notitle
+
+##![c'était merveilleux](images/merveilleux-small.jpg)
 
 ---
 
