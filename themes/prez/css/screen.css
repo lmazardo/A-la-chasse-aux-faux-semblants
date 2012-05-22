@@ -8,23 +8,19 @@ p, ul, li {
 }
 
 header h1, header h2, header h3, header h4, header h5, header h6 {
-  color: #000 !important;
-  font-weight: bold !important;
-  padding: 0 0 5px;
-  border-bottom: 1px solid #000;
+    color: #204a87 !important;
+    font-weight: bold !important;
 }
 
 section h1, section h2, section h3, section h4, section h5, section h6 {
-    color: #000 !important;
+    color: #3465a4 !important;
 }
 
 img { display: block; margin: auto; }
 
 body {
   font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-  background: -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#E9E9E9));
-  background: -moz-linear-gradient(bottom, #E9E9E9, #FFF);
-  background-color: #E9E9E9;
+  background: #555753;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -36,9 +32,9 @@ div.presentation {
   display: table-cell;
   vertical-align: middle;
   height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#E9E9E9));
-  background: -moz-linear-gradient(bottom, #E9E9E9, #FFF);
-  background-color: #E9E9E9;
+  background: -webkit-gradient(linear, left bottom, left top, from(#2e3436), to(#555753));
+  background-color: #555753;
+  background: -moz-linear-gradient(bottom, #555753, #2e3436);
 }
 
 div.slides, body.expose div.slides.nocontext {
@@ -56,78 +52,34 @@ div.slides.nocontext {
   overflow: hidden;
   position: relative;
   left: auto;
-<  top: auto;
+  top: auto;
 }
 
 div.slide {
-  background: #FFF;
   display: none;
   position: absolute;
   overflow: hidden;
   width: 900px;
   height: 700px;
   left: 50%;
+  top: 50%;
+  margin-top: -350px;
   background-color: #fff;
   -webkit-transition: margin 0.25s ease-in-out;
   -moz-transition: margin 0.25s ease-in-out;
   -o-transition: margin 0.25s ease-in-out;
-  border-top-left-radius: 0px;
-  -moz-border-radius-topleft: 0px;
-  -webkit-border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  -moz-border-radius-topright: 0px;
-  -webkit-border-top-right-radius: 0px;
+  border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   -moz-border-radius-bottomright: 20px;
   -webkit-border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   -moz-border-radius-bottomleft: 20px;
   -webkit-border-bottom-left-radius: 20px;
-  box-shadow: 0 0 5px 5px #E9E9E9;
-  -moz-box-shadow: 0 0 5px 5px #E9E9E9;
-  -webkit-box-shadow: 0 0 5px 5px #E9E9E9;
-}
-
-div.home header h1,div.fail header h1{
-  border: none;
-  margin-top:25%;
-  font-size:150%;
-  text-align:center;
-}
-
-div.home header h1 {
-    margin-top: 48%;
-}
-
-div.slide.home {
-    background: url(background_title.jpg);
-}
-
-div.fail header h1{
-  font-size:130%;
-}
-
-
-div.home section,div.fail section{
-  float:right;
-  margin:10px 0;
-}
-div.home section h2,div.fail section h2{
-  color:#000 !important;
-  text-shadow: none;
-  margin:0;
-  text-align:right;
-}
-
-div.fail section h2{
-  color:#000 !important;
-}
-
-div.fail section h3 {
-    color: #000000 !important;
-    font-size: 170%;
-    margin: 0 50px 10px;
-    text-shadow: none;
 }
 
 div.slide p {
@@ -171,16 +123,20 @@ body.three-d div.slides {
 header:not(:only-child) {
   font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   font-weight: normal;
-  font-size: 50px;
+  font-size: 450%;
   letter-spacing: -.05em;
   color: white;
   color: black;
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  position: absolute;
+  left: 30px;
+  top: 25px;
   margin: 0;
   padding: 0;
 }
 
 header h1, header h2, header h3, header h4, header h5, header h6 {
+  display: inline;
   font-size: 100%;
   font-weight: normal;
   padding: 0;
@@ -195,11 +151,12 @@ section, .slide header:only-child h1 {
   font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   color: #3f3f3f;
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
-  margin: 50px auto 0;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 100px;
   display: block;
   overflow: hidden;
 }
-
 
 section img.align-center {
   display: block;
@@ -245,11 +202,8 @@ li {
   height: 700px;
   width: 900px;
   font-size: 50px;
-  
-}
-
-body .slide .inner {
-  padding:10px 20px;
+  margin-top:100px;
+  margin-bottom:100px;
 }
 
 .sidebar {
@@ -393,6 +347,9 @@ body.expose .slide-wrapper {
 }
 
 body.expose .slide footer {
+}
+
+body.expose .slide .inner {
 }
 
 body.expose .slide.far-past,
@@ -584,16 +541,18 @@ div.slide div.presenter_notes {
 }
 
 .baseStyles {
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  border: none;
-  width: 800px;
-  height: 600px; 
+	margin: 0; padding: 0; border: none; width: 800px; height: 600px; 
 }
 
 .iframe {
 	margin: 0; padding: 0;
+}
+
+div.home h1 {
+    font-size:150%;
+}
+div.home section {
+    margin-top: 500px;
 }
 
 section img{
@@ -615,11 +574,42 @@ div.iframe section {
 }
 
 div.long-title section {
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
+div.fail h1 {
+  line-height: 120%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
 
+div.fail h2 {
+  line-height: 180%;
+  text-align: right;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 25px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
 
+pre {
+    border: 1px solid #888888;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1em 1em 1em 1em;
+    font-size: 200%;
+    padding: 1em !important;
+    width: auto !important;
+}
 div.center-code pre {
     border: 1px solid #888888;
     padding: 2px;
@@ -658,13 +648,12 @@ div.manybullets div.inner section ul li p {
 }
 
 div.center section {
-    margin-top:180px;
+    margin-top:300px;
 }
 
 div.notitle h1 {
 	display:none;
 }
-
 
 div.use-case pre {
     border: 1px solid #888888;
