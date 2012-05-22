@@ -24,22 +24,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="199.97786"
-     inkscape:cy="231.46109"
+     inkscape:zoom="2.4897826"
+     inkscape:cx="440.7305"
+     inkscape:cy="319.42184"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1301"
-     inkscape:window-height="744"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-width="1680"
+     inkscape:window-height="1050"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     width="640px" />
+     width="640px"
+     showguides="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -48,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -167,5 +168,55 @@
        d="m 242.49572,370.41266 27.20021,0 0,19.60944 36.68867,-0.63256 0,14.54896 30.99558,0 0,20.24202 32.8933,-0.63256 0,21.50714 35.42353,-0.63255 0,24.03739 36.68866,-0.63256 0,20.24202 35.42355,0 31.62814,-0.63257 0,17.71176 32.8933,0 0,22.77229 29.0979,0 -1.26514,16.44664 32.89328,0 0,15.18152 -31.62814,0.63256 0,-15.81408 -29.0979,-0.63256 0,-15.81408 -32.8933,-0.63258 0,-24.03738 -31.62814,0 -1.26514,-15.81409 -71.47963,-1.26512 0,-18.9769 -35.42353,-0.63255 0,-23.40485 -30.9956,-0.63256 -1.26514,-18.97689 -30.99558,0 0,-20.24203 -36.68867,0 0,-15.1815 -27.20021,-0.63257 z"
        id="path3978"
        inkscape:connector-curvature="0" />
+    <g
+       id="g3027"
+       transform="translate(4,0)">
+      <rect
+         ry="9.0913725"
+         y="253.12796"
+         x="500.38708"
+         height="68.16082"
+         width="127.23354"
+         id="rect3812"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#888d96;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         ry="5.2470212"
+         y="258.01694"
+         x="517.08722"
+         height="23.903099"
+         width="28.567118"
+         id="rect3776"
+         style="fill:#00de00;fill-opacity:1;stroke:#888d96;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         ry="5.2470212"
+         y="285.12656"
+         x="517.08722"
+         height="23.903099"
+         width="28.567118"
+         id="rect3776-6"
+         style="fill:#cf0000;fill-opacity:1;stroke:#888d96;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3796"
+         y="276.09323"
+         x="553.72028"
+         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="276.09323"
+           x="553.72028"
+           id="tspan3798"
+           sodipodi:role="line">validé</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3800"
+         y="302.76486"
+         x="554.51752"
+         style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="302.76486"
+           x="554.51752"
+           id="tspan3802"
+           sodipodi:role="line">à faire</tspan></text>
+    </g>
   </g>
 </svg>
