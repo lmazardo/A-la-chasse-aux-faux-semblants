@@ -3,15 +3,15 @@
 .fx: manybullets
 
 * Formations
-	* TDD, scrum, recueil du besoin, core protocols
+	* TDD, certification ScrumMaster, recueil du besoin, core protocols
 * Conférences et non conférences
 	* XP days, Agile France, Agile Tour, AYE, Qcon, Agile Open
 * Auto-formation
-	* 4h par mois pour chaque dev : dojo, ateliers
-
+	* 4h par mois pour participer à des dojos, des ateliers...
 * Livres
-
+	* Budget illimité
 * Consultants
+	* 3/4 sociétés différentes, une quinzaine de consultants différents 
 
 .notes: FORMATIONS TDD, scrum, recceuil besoins (CAPICA), core protocols
 

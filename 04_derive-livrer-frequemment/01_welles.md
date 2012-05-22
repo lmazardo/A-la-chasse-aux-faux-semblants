@@ -51,6 +51,10 @@
 
 > C'est pas grave en attendant on va en profiter pour...
 
+## **Refaire le design from scratch**
+
+> Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..
+
 ---
 
 # 7 mois de dev à intégrer

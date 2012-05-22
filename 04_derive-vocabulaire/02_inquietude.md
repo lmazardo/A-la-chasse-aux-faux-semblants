@@ -12,8 +12,10 @@
 
 ## Importance de l'engagement
 
+le client :
 > vous n'avez pas respecté votre engagement
 
+l'équipe :
 > on n'a pas respecté notre engagement :(
 
 ## Réussir le sprint Vs. réussir le projet
