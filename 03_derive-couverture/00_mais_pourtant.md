@@ -1,1 +1,3 @@
 # Mais pourtant...
+
+.notes: Nous avons constaté des dérives dans l'application d'une méthode dite "agile" en voila quelques exemples

@@ -25,4 +25,7 @@
 
 .notes: CONSULTANTS techniques/gestion au quotidien sur les projets... entre 10 et 15
 
+.notes: les meilleurs consultants, d'ailleurs nous avons croisé 5/6 aujourd'hui !
+
 .notes: aujourd'hui pratiquement tous les développements sont agiles. Ils se disent Agile, ils mettent en oeuvre une ou plusieurs pratiques dites agiles.
+

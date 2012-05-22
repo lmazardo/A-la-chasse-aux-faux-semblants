@@ -559,12 +559,12 @@ div.home header h1 {
 
 div.home section h2 {
   border: none;
-  margin-top:30px;
+  margin-top:110px;
   font-size:150%;
   text-align:right;
 }
-div.presentation div.slides div.slide-wrapper div.home div.inner header {
-    padding-top: 255px;
+div.home div.inner header {
+    padding-top: 340px;
 }
 
 div.fail header h1{
