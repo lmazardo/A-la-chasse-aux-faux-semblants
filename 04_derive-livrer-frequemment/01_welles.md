@@ -2,6 +2,8 @@
 
 ---
 
+#i
+
 .notes: un PO qui avait les mains libres... c'est rare !
 
 .notes: experts vidéo, experts flash, experts backend, ergonomes et designers tous réunis !
@@ -22,7 +24,7 @@
 
 .fx: fullimage notitle
 
-##![c'était merveilleux](images/merveilleux-small.jpg)
+![c'était merveilleux](images/merveilleux-small.jpg)
 
 ---
 
