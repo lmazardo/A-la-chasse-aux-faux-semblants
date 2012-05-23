@@ -1,4 +1,4 @@
-#faire du chiffre
+#barre <span class="red">verte</span>
 
 .fx: fail
 

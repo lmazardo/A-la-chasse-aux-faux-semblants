@@ -1,5 +1,5 @@
 #Cela a commencé...
-.fx: fail
+.fx: subtitle 
 
 ## Par un client, à qui on ne livrait pas ce qu'il voulait
 
@@ -9,7 +9,8 @@
 
 ---
 #Cela a commencé...
-.fx: fail
+.fx: subtitle
+
 ## Par trop d'anomalies en recette
 
 .notes: TDD
@@ -19,7 +20,7 @@
 .notes: en 3 mois, le nombre d'anomalies avait baissé, la couverture du code par les tests étaient de 80% 
 
 ---
-# Solutions mise en place
+# Solutions mises en place
 
 .fx: bigbullet center
 
@@ -29,7 +30,7 @@
 .notes: Utilisation des CAPICAs C pour Contexte, A pour Acteur, P pour Problème, I pour Interaction, C pour Conséquence, A pour Alternative
 
 ---
-# Solutions mise en place
+# Solutions mises en place
 
 .fx: bigbullet center
 

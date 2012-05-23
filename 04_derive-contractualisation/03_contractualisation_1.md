@@ -1,4 +1,4 @@
-#Contract negotiation over customer collaboration
+#contract <span class="green">negotiation</span> over customer <span class="red">collaboration</span>
 
 .fx: fail
 

@@ -1,4 +1,4 @@
-# Compte rendu d'activité quotidien
+# compte rendu d'activité <span class="green">quotidien</span>
 
 .fx: fail
 
@@ -15,9 +15,12 @@
 * 1 par jour
 * 15 minutes
 * Point de synchronisation d'une équipe auto-organisée
-	* Qu'est-ce que j'ai fait depuis le dernier daily ?
-	* Qu'est-ce que j'ai l'intention de faire d'ici le prochain daily ?
-	* Qu'est-ce qui me bloque ?
+
+> Qu'est-ce que j'ai fait depuis le dernier daily ?
+
+> Qu'est-ce que j'ai l'intention de faire d'ici le prochain daily ?
+
+> Qu'est-ce qui me bloque ?
 
 .notes: les 3 questions Qui : l'équipe de développement, scrummaster, le client, parfois le manager. Il ne faut pas perdre de vue l'objectif du daily qui est : - d'être un point de visibilité journalier des encours par l'équipe.  Il est important que tous les participants recoivent une information accessible. => aller à l'essentiel, être concis synthétique - d'identifier au plus tôt les points de blocage
 

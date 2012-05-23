@@ -139,7 +139,6 @@ header h1, header h2, header h3, header h4, header h5, header h6 {
   color: #000 !important;
   font-weight: bold !important;
   padding: 0 0 5px;
-  border-bottom: 1px solid #000;
 }
 
 
@@ -695,7 +694,7 @@ div.home div.inner header {
     padding-top: 340px;
 }
 
-div.fail header h1{
+div.fail header h1 {
   border: none;
   margin-top:25%;
   font-size:120%;
@@ -762,10 +761,40 @@ div.fail h2 {
   font-size: 25px;
   margin-top:100px;
   margin-bottom:100px;
-  padding-top:20px;
-
+  padding-top:400px;
 }
 
+div.subtitle header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:120%;
+  text-align:center;
+}
+
+div.subtitle h1 {
+  line-height: 120%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+div.subtitle h2 {
+  line-height: 180%;
+  text-align: right;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 25px;
+  margin-top:100px;
+  margin-bottom:100px;
+  padding-top:20px;
+}
 pre {
     border: 1px solid #888888;
     padding: 2px;
@@ -810,6 +839,17 @@ div.bigbullet div.inner section ul li {
     padding: 20px 0;
 }
 
+div.bigbullet div.inner section blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+  font-size: 125% !important;
+  color: #555753 !important;
+}
+
+
 div.manybullets div.inner section ul li {
     color: #555753 !important;
     font-size: 180% !important;
@@ -851,7 +891,7 @@ div.use-case pre {
 }
 
 .red {
-    color: #ffaa22;
+    color: #ff0000;
 }
 
 .blue {
@@ -1588,7 +1628,7 @@ div.use-case pre {
       
       <!-- slide source: 021_historique/01_au-commencement.md -->
       <div class="slide-wrapper">
-        <div class="slide fail has_notes">
+        <div class="slide subtitle  has_notes">
           <div class="inner">
             
             <header><h1>Cela a commencé...</h1></header>
@@ -1620,7 +1660,7 @@ div.use-case pre {
       
       <!-- slide source: 021_historique/01_au-commencement.md -->
       <div class="slide-wrapper">
-        <div class="slide fail has_notes">
+        <div class="slide subtitle has_notes">
           <div class="inner">
             
             <header><h1>Cela a commencé...</h1></header>
@@ -1656,7 +1696,7 @@ div.use-case pre {
         <div class="slide bigbullet center has_notes">
           <div class="inner">
             
-            <header><h1>Solutions mise en place</h1></header>
+            <header><h1>Solutions mises en place</h1></header>
             
             
             <section><ul>
@@ -1690,7 +1730,7 @@ div.use-case pre {
         <div class="slide bigbullet center">
           <div class="inner">
             
-            <header><h1>Solutions mise en place</h1></header>
+            <header><h1>Solutions mises en place</h1></header>
             
             
             <section><ul>
@@ -1837,13 +1877,11 @@ div.use-case pre {
       
       <!-- slide source: 021_historique/10_mais-pourtant.md -->
       <div class="slide-wrapper">
-        <div class="slide has_notes">
+        <div class="slide">
           <div class="inner">
             
             <header><h1>Mais pourtant...</h1></header>
             
-            
-            <section><p class="notes">Nous avons constaté des dérives dans l'application d'une méthode dite "agile" en voila quelques exemples</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -1870,7 +1908,7 @@ div.use-case pre {
         <div class="slide fail has_notes">
           <div class="inner">
             
-            <header><h1>faire du chiffre</h1></header>
+            <header><h1>barre <span class="red">verte</span></h1></header>
             
             
             <section><h2>#fail</h2>
@@ -1980,7 +2018,7 @@ div.use-case pre {
         <div class="slide fail">
           <div class="inner">
             
-            <header><h1>livrer fréquemment...</h1></header>
+            <header><h1><span class="red">livrer</span> fréquemment</h1></header>
             
             
             <section><h2>#fail</h2></section>
@@ -2151,7 +2189,7 @@ div.use-case pre {
         <div class="slide fail">
           <div class="inner">
             
-            <header><h1>Livrer fréquemment toujours</h1></header>
+            <header><h1><span class="red">livrer</span> fréquemment</h1></header>
             
             
             <section><h2>#fail</h2></section>
@@ -2214,7 +2252,7 @@ div.use-case pre {
         <div class="slide fail">
           <div class="inner">
             
-            <header><h1>Contract negotiation over customer collaboration</h1></header>
+            <header><h1>contract <span class="green">negotiation</span> over customer <span class="red">collaboration</span></h1></header>
             
             
             <section><h2>#fail</h2></section>
@@ -2375,7 +2413,7 @@ becomes known throughout the Sprint</strong>.</p>
         <div class="slide fail">
           <div class="inner">
             
-            <header><h1>Faire du chiffre</h1></header>
+            <header><h1>réussir le <span class="red">sprint</span></h1></header>
             
             
             <section><h2>#fail</h2></section>
@@ -2589,7 +2627,7 @@ becomes known throughout the Sprint.</p>
         <div class="slide fail has_notes">
           <div class="inner">
             
-            <header><h1>Compte rendu d'activité quotidien</h1></header>
+            <header><h1>compte rendu d'activité <span class="green">quotidien</span></h1></header>
             
             
             <section><p class="notes">les gens sont debouts</p>
@@ -2626,13 +2664,13 @@ becomes known throughout the Sprint.</p>
             <section><ul>
 <li>1 par jour</li>
 <li>15 minutes</li>
-<li>Point de synchronisation d'une équipe auto-organisée<ul>
-<li>Qu'est-ce que j'ai fait depuis le dernier daily ?</li>
-<li>Qu'est-ce que j'ai l'intention de faire d'ici le prochain daily ?</li>
-<li>Qu'est-ce qui me bloque ?</li>
+<li>Point de synchronisation d'une équipe auto-organisée</li>
 </ul>
-</li>
-</ul>
+<blockquote>
+<p>Qu'est-ce que j'ai fait depuis le dernier daily ?</p>
+<p>Qu'est-ce que j'ai l'intention de faire d'ici le prochain daily ?</p>
+<p>Qu'est-ce qui me bloque ?</p>
+</blockquote>
 <p class="notes">les 3 questions Qui : l'équipe de développement, scrummaster, le client, parfois le manager. Il ne faut pas perdre de vue l'objectif du daily qui est : - d'être un point de visibilité journalier des encours par l'équipe.  Il est important que tous les participants recoivent une information accessible. =&gt; aller à l'essentiel, être concis synthétique - d'identifier au plus tôt les points de blocage</p></section>
             
           </div>
@@ -2925,13 +2963,13 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">Solutions mise en place</a></th>
+        <th><a href="#slide7">Solutions mises en place</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">Solutions mise en place</a></th>
+        <th><a href="#slide8">Solutions mises en place</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
@@ -2961,7 +2999,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">faire du chiffre</a></th>
+        <th><a href="#slide13">barre <span class="red">verte</span></a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
@@ -2979,7 +3017,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">livrer fréquemment...</a></th>
+        <th><a href="#slide16"><span class="red">livrer</span> fréquemment</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
@@ -3009,7 +3047,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Livrer fréquemment toujours</a></th>
+        <th><a href="#slide21"><span class="red">livrer</span> fréquemment</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
@@ -3021,7 +3059,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-23">
-        <th><a href="#slide23">Contract negotiation over customer collaboration</a></th>
+        <th><a href="#slide23">contract <span class="green">negotiation</span> over customer <span class="red">collaboration</span></a></th>
         <td><a href="#slide23">23</a></td>
       </tr>
       
@@ -3051,7 +3089,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-28">
-        <th><a href="#slide28">Faire du chiffre</a></th>
+        <th><a href="#slide28">réussir le <span class="red">sprint</span></a></th>
         <td><a href="#slide28">28</a></td>
       </tr>
       
@@ -3087,7 +3125,7 @@ becomes known throughout the Sprint.</p>
       
       
       <tr id="toc-row-34">
-        <th><a href="#slide34">Compte rendu d'activité quotidien</a></th>
+        <th><a href="#slide34">compte rendu d'activité <span class="green">quotidien</span></a></th>
         <td><a href="#slide34">34</a></td>
       </tr>
       

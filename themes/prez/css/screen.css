@@ -11,7 +11,6 @@ header h1, header h2, header h3, header h4, header h5, header h6 {
   color: #000 !important;
   font-weight: bold !important;
   padding: 0 0 5px;
-  border-bottom: 1px solid #000;
 }
 
 
@@ -567,7 +566,7 @@ div.home div.inner header {
     padding-top: 340px;
 }
 
-div.fail header h1{
+div.fail header h1 {
   border: none;
   margin-top:25%;
   font-size:120%;
@@ -634,10 +633,40 @@ div.fail h2 {
   font-size: 25px;
   margin-top:100px;
   margin-bottom:100px;
-  padding-top:20px;
-
+  padding-top:400px;
 }
 
+div.subtitle header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:120%;
+  text-align:center;
+}
+
+div.subtitle h1 {
+  line-height: 120%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+div.subtitle h2 {
+  line-height: 180%;
+  text-align: right;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 25px;
+  margin-top:100px;
+  margin-bottom:100px;
+  padding-top:20px;
+}
 pre {
     border: 1px solid #888888;
     padding: 2px;
@@ -682,6 +711,17 @@ div.bigbullet div.inner section ul li {
     padding: 20px 0;
 }
 
+div.bigbullet div.inner section blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+  font-size: 125% !important;
+  color: #555753 !important;
+}
+
+
 div.manybullets div.inner section ul li {
     color: #555753 !important;
     font-size: 180% !important;
@@ -723,7 +763,7 @@ div.use-case pre {
 }
 
 .red {
-    color: #ffaa22;
+    color: #ff0000;
 }
 
 .blue {
