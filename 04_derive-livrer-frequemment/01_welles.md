@@ -1,5 +1,9 @@
 #livrer fréquemment...
 
+.fx: fail
+
+## #fail
+
 ---
 
 #i
@@ -28,20 +32,27 @@
 
 ---
 
-# Livrer fréquemment
-### mais pas sur l'infrastructure cible
-.fx: fail
+# 9 mois de développement
 
-## #fail
+.fx: fullimage
 
+![on a bien mesure l'avancement](images/welles.svg)
 
 ---
 
-# Incrément **NON** potentiellement livrable
+# Intégration douloureuse
+
+.fx: fullimage
+
+.notes: l'intégration a duré 2 mois
+
+![on avait juste oublié un truc](images/welles-not-done.svg)
+
+---
+
+# Incrément **NON** livrable
 
 .fx: long-title
-
-## Pas d'infrastructure pour déployer
 
 ## Impossible de proposer à notre client de livrer
 
@@ -55,19 +66,4 @@
 
 > Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..
 
----
-
-# 7 mois de dev à intégrer
-
-.fx: fullimage
-
-![on a bien mesure l'avancement](images/welles.svg)
-
----
-
-# 0 visibilité
-
-.fx: fullimage
-
-![on avait juste oublié un truc](images/welles-not-done.svg)
 

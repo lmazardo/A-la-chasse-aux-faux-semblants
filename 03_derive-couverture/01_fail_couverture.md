@@ -9,3 +9,12 @@
 .notes: les tests passent non robustes, non instantannés un build avec les tests 30 minutes, inter-dépendant... 
 
 .notes: Un test ne passe pas on le commente pas compris l'intention de faire des tests
+
+---
+
+.fx: bigbullet
+
+* Intégration continue automatisée
+* Métriques sur le code
+* Des tests <span class="green">**verts**</span>
+* 80% du code couvert par les tests

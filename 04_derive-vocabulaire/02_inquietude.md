@@ -1,10 +1,10 @@
 #o
 .fx: notitle manybullets
 
-* Excellente visibilité à l'engagement
 * Impression de lenteur
 
-> vous n'allez pas très vite
+le client :
+> pour un sprint, vous n'allez pas très vite
 
 
 * Importance de l'engagement
@@ -15,15 +15,19 @@ le client :
 l'équipe :
 > on n'a pas respecté notre engagement :(
 
-* Réussir le sprint Vs. réussir le projet
-	* Faire du point
-	* S'engager sur moins
+.notes: Faire du point
+
+.notes: S'engager sur moins
 
 .notes: validation laxiste des stories -> mauvaise visu reste à faire
 
 .notes: sur-spécification des stories pour être sûr et certain de la terminer à temps
 
-
 .notes: Ne pas prévoir plus que ce qu'on est certain de terminer -> risque fin de projet
 
+
+
+---
+
+# Réussir le sprint était devenu plus important que réussir le projet
 
