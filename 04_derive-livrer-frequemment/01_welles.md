@@ -66,4 +66,6 @@
 
 > Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..
 
+---
 
+# Les fonctionnalités étaient devenues plus importantes que le produit

@@ -25,3 +25,7 @@
 .notes: ligne 4 A la limite on peut supposer que ce test vérifie que le constructeur ne lève pas d'exception. Mais dans ce cas, inutile de tester si on retourne quelque chose différent de null. Il suffit d'appeler le constructeur et de constater qu'aucune exception n'est levée. Mais ça ne semble pas être l'excuse de ce code.
 
 .notes: [section faire du chiffre] ligne 4 en fait le cdp a exigé un taux de couverture du code par les tests de 80%... Félicitations ! Objectif atteint.
+
+---
+
+# La métrique était devenue plus importante que la maintenabilité du code
