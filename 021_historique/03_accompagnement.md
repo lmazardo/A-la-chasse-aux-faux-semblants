@@ -11,7 +11,7 @@
 * Livres
 	* Budget illimité
 * Consultants
-	* 3/4 sociétés différentes, une quinzaine de consultants différents 
+	* les meilleurs 
 
 .notes: FORMATIONS TDD, scrum, recceuil besoins (CAPICA), core protocols
 
