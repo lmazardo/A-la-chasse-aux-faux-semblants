@@ -624,12 +624,12 @@ div.fail h1 {
 }
 
 div.fail h2 {
-  line-height: 180%;
+/*  line-height: 180%; */
   text-align: right;
-  display: table-cell;
+/*  display: table-cell; */
   vertical-align: middle;
-  height: 700px;
-  width: 900px;
+/*  height: 700px; */
+/*  width: 900px; */
   font-size: 25px;
   margin-top:100px;
   margin-bottom:100px;
@@ -768,5 +768,9 @@ div.use-case pre {
 
 .blue {
     color: #2222ee;
+}
+
+.hidden {
+	color: #FFF;
 }
 
