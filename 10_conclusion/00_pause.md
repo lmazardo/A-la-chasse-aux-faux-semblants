@@ -4,6 +4,10 @@
 
 ---
 
+
+
+<!--
+
 .fx: fail
 
 #Des tests pour <span class="red">améliorer les métriques</span> ou pour <span class="green">améliorer le produit</span> ?
@@ -27,4 +31,5 @@
 .fx: fail
 
 #Un daily pour <span class="red">rendre compte de son activité</spans> ou <span class="green">synchroniser une équipe auto-organisée</span> ?
+-->
 
