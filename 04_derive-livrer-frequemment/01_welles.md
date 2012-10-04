@@ -58,13 +58,14 @@
 
 > Est-ce qu'il vaut mieux que j'ouvre mon service maintenant ou terminer ce truc d'abord ?
 
+## **Refaire le design from scratch**
+
+> Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..
+
 ## Un client trop gentil (ou trop riche *(ou mal conseillé)*) ?
 
 > C'est pas grave en attendant on va en profiter pour...
 
-## **Refaire le design from scratch**
-
-> Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..
 
 ---
 

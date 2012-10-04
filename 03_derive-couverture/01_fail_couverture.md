@@ -14,7 +14,7 @@
 
 .fx: bigbullet
 
+* Des tests <span class="green">**verts**</span>
 * Intégration continue automatisée
 * Métriques sur le code
-* Des tests <span class="green">**verts**</span>
 * 80% du code couvert par les tests
