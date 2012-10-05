@@ -774,3 +774,14 @@ div.use-case pre {
 	color: #FFF;
 }
 
+div.disclaimer {
+	background: #000;
+}
+
+div.disclaimer h1 {
+	color: #FFF !important;
+}
+
+div.disclaimer  ul li p { 
+	color: #FFF !important;
+}
