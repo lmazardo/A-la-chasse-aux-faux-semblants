@@ -8,6 +8,19 @@
 
 ---
 
+
+# Celui qui parle, celui qui réfléchit
+## celui qui rêve...
+.fx: fail
+
+---
+
+.fx: image-withoutborder
+
+![ce que j'ai terminé hier, ce que je vais terminé aujourd'hui, ce qui me bloque](images/daily-small.jpg)
+
+---
+
 #0
 
 .fx: notitle bigbullet
@@ -24,19 +37,8 @@
 
 .notes: les 3 questions Qui : l'équipe de développement, scrummaster, le client, parfois le manager. Il ne faut pas perdre de vue l'objectif du daily qui est : - d'être un point de visibilité journalier des encours par l'équipe.  Il est important que tous les participants recoivent une information accessible. => aller à l'essentiel, être concis synthétique - d'identifier au plus tôt les points de blocage
 
-
 ---
 
-# Celui qui parle, celui qui réfléchit
-## celui qui rêve...
-.fx: fail
-
----
-.fx: image-withoutborder
-
-![ce que j'ai terminé hier, ce que je vais terminé aujourd'hui, ce qui me bloque](images/daily-small.jpg)
-
----
 # La cérémonie devient plus importante que les interactions entre les individus
 
 .fx: fail

@@ -18,7 +18,7 @@
 
 .fx: bigcite
 
-> Development Teams **do not commit** to completing the work planned during 
+> Development Teams **do not commit** to completing the work **planned** during 
 > a Sprint Planning Meeting.  The Development Team creates a forecast of 
 > work it believes will be done, but that forecast will change as more 
 > becomes known throughout the Sprint.
