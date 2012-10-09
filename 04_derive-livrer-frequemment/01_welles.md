@@ -4,6 +4,10 @@
 
 ## #fail
 
+.notes: et vous, vous livrez à quelle fréquence ?
+
+.notes: vous livrez quoi ? et à qui ? 
+
 ---
 
 #i
@@ -54,7 +58,7 @@
 
 .fx: long-title
 
-## Impossible de proposer à notre client de livrer
+## Impossible de proposer à notre client d'ouvrir le service
 
 > Est-ce qu'il vaut mieux que j'ouvre mon service maintenant ou terminer ce truc d'abord ?
 

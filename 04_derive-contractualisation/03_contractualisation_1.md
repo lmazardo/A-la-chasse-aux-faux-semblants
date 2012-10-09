@@ -4,6 +4,9 @@
 
 ## #fail
 
+.notes: est-ce que vous faites des users stories ?  à quoi cela vous sert ?
+
+
 ---
 
 .fx: bigbullet
