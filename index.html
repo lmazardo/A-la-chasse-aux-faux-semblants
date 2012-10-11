@@ -1,0 +1,3371 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>A la chasse aux faux semblants</title>
+    <!-- Styles -->
+    
+    <style type="text/css" media="print">
+      * {
+    margin: 0;
+    padding: 0;
+}
+
+@page {
+    size: landscape;
+}
+
+body {
+    font: 100% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+div.slide {
+    min-width: 800px;
+    min-height: 600px;
+    padding: 1em;
+    overflow: hidden;
+    page-break-after: always;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+div.slide div.inner {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    display: table-cell;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    margin: 1em 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+p, li, pre {
+    margin: 1em 0;
+}
+
+li {
+    margin-left: 2em;
+}
+
+a {
+    color: #000000;
+}
+
+pre, code {
+    max-width: 800px;
+    background: #eee;
+    font-family: Monaco, monospace;
+    font-size: 90%;
+}
+
+pre {
+    padding: .2em .5em;
+    overflow: hidden;
+    border-radius: .8em;
+}
+
+code {
+    padding: 0 .2em;
+}
+
+.slide header:only-child h1 {
+  line-height: 180%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 600px;
+  width: 800px;
+  font-size: 48px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+#toc, #help, .slide aside, .slide footer, .slide .notes,
+.presenter_notes, #current_presenter_notes, #presenter_note {
+  display: none;
+}
+
+    </style>
+    <style type="text/css" media="screen, projection">
+      h1, h2, h3, h4, h5, h6, p, ul, li {
+    font-family: sans-serif !important;
+}
+
+p, ul, li {
+    color: #555753 !important;
+    font-size: 120% !important;
+}
+
+header h1, header h2, header h3, header h4, header h5, header h6 {
+  color: #000 !important;
+  font-weight: bold !important;
+  padding: 0 0 5px;
+}
+
+
+section h1, section h2, section h3, section h4, section h5, section h6 {
+    color: #000 !important;
+}
+
+img { display: block; margin: auto; }
+
+body {
+  font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  background: #555753;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+div.presentation {
+  position: absolute;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#2e3436), to(#555753));
+  background-color: #555753;
+  background: -moz-linear-gradient(bottom, #555753, #2e3436);
+}
+
+div.slides, body.expose div.slides.nocontext {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+}
+
+div.slides.nocontext {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+
+div.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background-color: #fff;
+  -webkit-transition: margin 0.25s ease-in-out;
+  -moz-transition: margin 0.25s ease-in-out;
+  -o-transition: margin 0.25s ease-in-out;
+  border-top-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+
+div.slide p {
+  font-size: 20px;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  display: block;
+  margin-left: -1400px;
+}
+
+.slide.current {
+  display: block;
+  margin-left: -450px;
+}
+
+.slide.future {
+  display: block;
+  margin-left: 500px;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+
+/* Content */
+
+header:not(:only-child) {
+  font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 450%;
+  letter-spacing: -.05em;
+  color: white;
+  color: black;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  position: absolute;
+  left: 30px;
+  top: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+header h1, header h2, header h3, header h4, header h5, header h6 {
+  display: inline;
+  font-size: 100%;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+header h2:first-child {
+  margin-top: 0;
+}
+
+section, .slide header:only-child h1 {
+  font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  color: #3f3f3f;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 100px;
+  display: block;
+  overflow: hidden;
+}
+
+section img.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section img.align-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+section img.align-left {
+  display: block;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+pre {
+  font-size: 16px;
+  font-family: Monaco, Courier, monospace;
+}
+
+li {
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.slide header:only-child h1 {
+  line-height: 180%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+.sidebar {
+  background: -webkit-gradient(linear, top right, bottom right, from(#dde), to(#fff));
+  -webkit-transition: margin 0.25s ease-in-out;
+  background-color: #eee;
+  background: -moz-linear-gradient(right, #dde, #fff);
+  border-right: 5px solid #ccd;
+  z-index: 9999999;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  position: absolute;
+  display: block;
+  margin: 0;
+  margin-left: -400px;
+  padding: 10px 16px;
+  overflow: auto;
+  -webkit-transition: margin 0.2s ease-in-out;
+  -moz-transition: margin 0.2s ease-in-out;
+  -o-transition: margin 0.2s ease-in-out;
+}
+
+.sidebar h2 {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.sidebar table {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+
+.sidebar table caption {
+  display: none;
+}
+
+.sidebar tr {
+  margin: 2px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidebar th {
+  text-align: left;
+  font-weight: normal;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.sidebar tr.sub th {
+  text-indent: 20px;
+}
+
+.sidebar td {
+  text-align: right;
+  min-width: 20px;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  border-bottom: none;
+  padding: 4px 0;
+}
+
+.sidebar tr.active {
+  background: #ff0;
+}
+
+aside {
+  display: none;
+}
+  aside.source {
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
+    text-indent: 10px;
+  }
+  aside.page_number {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    text-indent: 10px;
+  }
+
+.notes {
+  display: none;
+  padding: 10px;
+  background: #ccc;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+  div.slide p.notes {
+    font-size: 90%;
+}
+
+/* Expose */
+
+body.expose div.slides {
+  float: left;
+  position: relative;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+body.expose div.slide {
+  display: block;
+  float: left;
+  position: relative;
+  left: auto !important;
+  top: auto !important;
+  margin: 10px !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;  
+  -moz-transform: scale(.33, .33);
+  -moz-transform-origin: 0 0;
+  -webkit-transform: scale(.33, .33);
+  -webkit-transform-origin: 0 0;
+  -o-transform: scale(.33, .33);
+  -o-transform-origin: 0 0;
+  cursor: pointer;
+}
+
+body.expose div.slide:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#bdd), to(#fff));
+  background-color: #eee;
+  background: -moz-linear-gradient(bottom, #bdd, #fff);
+}
+
+body.expose .slide-wrapper {
+  float: left;
+  position: relative;
+  margin: .5%;
+  width: 300px;
+  height: 233px;
+}
+
+body.expose .slide footer {
+}
+
+body.expose .slide .inner {
+}
+
+body.expose .slide.far-past,
+body.expose .slide.past,
+body.expose .slide.future,
+body.expose .slide.far-future {
+  margin-left: 0;
+}
+
+body.expose .slide.current {
+  background: -webkit-gradient(linear, left bottom, left top, from(#ddb), to(#fff));
+  background-color: #eee;
+  background: -moz-linear-gradient(bottom, #ddb, #fff);
+  border: 16px solid #fff;
+  -moz-transform: scale(.315, .315);
+  -moz-transform-origin: 0 0;
+  -webkit-transform: scale(.315, .315);
+  -webkit-transform-origin: 0 0;
+  -o-transform: scale(.315, .315);
+  -o-transform-origin: 0 0;
+}
+
+/* Pygments default theme */
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #808080 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0040D0 } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/* Presenter Mode */
+
+body.presenter_view div.slide {
+  display: inline;
+  position: absolute;
+  overflow: hidden;
+  -moz-transform: scale(.5, .5);
+  -moz-transform-origin: 0 0;
+  -webkit-transform: scale(.5, .5);
+  -webkit-transform-origin: 0 0;
+  -o-transform: scale(.5, .5);
+  -o-transform-origin: 0 0;
+  margin-top: -300px;
+}
+
+body.presenter_view .slide.far-past {
+  display: block;
+  margin-left: -1500px;
+}
+
+body.presenter_view .slide.past {
+  display: block;
+  margin-left: -975px;
+}
+
+body.presenter_view .slide.current {
+  display: block;
+  margin-left: -475px;
+  border: 8px solid maroon;
+  z-index: 2;
+}
+
+body.presenter_view .slide.future {
+  display: block;
+  margin-left: 25px;
+  z-index: 1;
+}
+
+body.presenter_view .slide.far-future {
+  display: block;
+  margin-left: 525px;
+}
+
+body.presenter_view div#current_presenter_notes {
+  visibility: visible;
+  display: block;
+  position: absolute;
+  overflow: auto;
+  vertical-align: middle;
+  left: 50%;
+  top: 50%;
+  margin-left: -475px;
+  margin-top: 100px;
+  z-index: 2;
+  width: 950px;
+  border-style: solid;
+  height: 30%;
+  background-color: silver;
+}
+
+body.presenter_view div#current_presenter_notes section {
+  font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  color: black;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  display: block;
+  overflow: visible;
+  position: relative;
+  background-color: #fffeff;
+  height: 120px;
+  margin-right: 30px;
+  margin-top: 60px;
+  margin-left: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+body.presenter_view div#current_presenter_notes section p {
+  margin: 0;
+}
+
+body.presenter_view div#current_presenter_notes h1 {
+  font-size: 50%;
+  display: block;
+}
+
+div#current_presenter_notes {
+  display: none;
+}
+
+div.slide div.presenter_notes {
+  display: none;
+}
+
+#blank {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 64;
+  display: none;
+}
+
+.baseStyles {
+	margin: 0; padding: 0; border: none; width: 800px; height: 600px; 
+}
+
+.iframe {
+	margin: 0; padding: 0;
+}
+div.home header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:150%;
+  text-align:center;
+}
+
+div.home section h2 {
+  border: none;
+  margin-top:110px;
+  font-size:150%;
+  text-align:right;
+}
+div.home div.inner header {
+    padding-top: 340px;
+}
+
+div.fail header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:120%;
+  text-align:center;
+}
+
+
+div.home header h1 {
+    margin-top: 48%;
+}
+
+div.slide.home {
+    background: url(data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgAkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAkkkgALckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkltEkkkm2YkCEkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkHoiAD6bsrBCZnDvckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkJEg27sE350KjvoCbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgrkd8hnbHYnbc4Gykkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk6MhvKIsT0ExYcstEkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgWE1hmjlXglG8CItEkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjezEAOEkkkkjzCTQkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkdruIlEkkkkkzZXYUkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkFykkkkkkkhX5eQkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkg4kkkkkkkkX/T5EkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgJIbbbAkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkMa39phIbbbbbbbckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgLT9sIbbbbbbbbbbbbbbbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkhjfsMbbbbbbbbbbbbbbbbbbbbckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkDbsLbbbbbbbbbbbbbbbbbbbbbbbbbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkgrXsObbbbbbbbbbbbbbbbbbbbbbbbbbbbbckkkkkkkkkkkkkkkkkkkkkkkkkkkkqXxgbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbkkkkkkkkkkkkkkkkkkkkkkkko+dhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbckkkkkkkkkkkkkkkkkkkL31hTbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbkkkkkkkkkkkkkhL260ubbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbckkkqpJbS39EhDbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbIbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb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);
+}
+
+div.home h1 {
+    font-size:150%;
+}
+div.home section {
+    margin-top: 500px;
+}
+
+section img{
+  border:10px solid #FFF;
+  box-shadow: 0 0 10px 10px #A9A9A9;
+  -moz-box-shadow: 0 0 5px 5px #A9A9A9;
+  -webkit-box-shadow: 0 0 5px 5px #E9E9E9;
+  -moz-border-radius: 12px; 
+  -webkit-border-radius: 12px; 
+  border-radius: 12px; 
+}
+
+div.image-withoutborder img {
+    border:none;
+}
+
+div.iframe section {
+    margin-top: 30px;
+}
+
+div.long-title section {
+    margin-top: 200px;
+}
+
+div.fail h1 {
+  line-height: 120%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+div.fail h2 {
+/*  line-height: 180%; */
+  text-align: right;
+/*  display: table-cell; */
+  vertical-align: middle;
+/*  height: 700px; */
+/*  width: 900px; */
+  font-size: 25px;
+  margin-top:100px;
+  margin-bottom:100px;
+  padding-top:400px;
+}
+
+div.subtitle header h1 {
+  border: none;
+  margin-top:25%;
+  font-size:120%;
+  text-align:center;
+}
+
+div.subtitle h1 {
+  line-height: 120%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 50px;
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+div.subtitle h2 {
+  line-height: 180%;
+  text-align: right;
+  display: table-cell;
+  vertical-align: middle;
+  height: 700px;
+  width: 900px;
+  font-size: 25px;
+  margin-top:100px;
+  margin-bottom:100px;
+  padding-top:20px;
+}
+pre {
+    border: 1px solid #888888;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1em 1em 1em 1em;
+    font-size: 200%;
+    padding: 1em !important;
+    width: auto !important;
+}
+div.center-code pre {
+    border: 1px solid #888888;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1em 1em 1em 1em;
+    font-size: 200%;
+    padding: 1em !important;
+    width: auto !important;
+}
+
+div.bigcite section blockquote {
+  font-size: 140%;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
+
+blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
+ 
+
+div.bigbullet div.inner section ul li {
+    color: #555753 !important;
+    font-size: 190% !important;
+    margin: 10px 0;
+    padding: 20px 0;
+}
+
+div.bigbullet div.inner section blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+  font-size: 125% !important;
+  color: #555753 !important;
+}
+
+
+div.manybullets div.inner section ul li {
+    color: #555753 !important;
+    font-size: 180% !important;
+    margin: 3px 0;
+    padding: 10px 0;
+}
+
+div.manybullets div.inner section ul li p {
+    margin: 0;
+}
+
+div.manybullets div.inner section ul li ul li {
+    font-size: 60% !important;
+    color: #555753 !important;
+    list-style-type: none;
+}
+
+div.center section {
+    margin-top:300px;
+}
+
+div.notitle h1 {
+	display:none;
+}
+
+div.use-case pre {
+    border: 1px solid #888888;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1em 1em 1em 1em;
+    font-size: 150%;
+    padding: 1em !important;
+    width: auto !important;
+    white-space: pre-wrap;
+}
+
+.green {
+    color: #22aa22;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.blue {
+    color: #2222ee;
+}
+
+.hidden {
+	color: #FFF;
+}
+
+div.disclaimer {
+	background: #000;
+}
+
+div.disclaimer h1 {
+	color: #FFF !important;
+}
+
+div.disclaimer  ul li p { 
+	color: #FFF !important;
+}
+
+    </style>
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script>
+      function main() {
+    // Since we don't have the fallback of attachEvent and
+    // other IE only stuff we won't try to run JS for IE.
+    // It will run though when using Google Chrome Frame
+    if (document.all) { return; }
+
+    var currentSlideNo;
+    var notesOn = false;
+    var expanded = false;
+    var hiddenContext = false;
+    var blanked = false;
+    var slides = document.getElementsByClassName('slide');
+    var touchStartX = 0;
+    var spaces = /\s+/, a1 = [''];
+    var tocOpened = false;
+    var helpOpened = false;
+    var overviewActive = false;
+    var modifierKeyDown = false;
+    var scale = 1;
+    var showingPresenterView = false;
+    var presenterViewWin = null;
+    var isPresenterView = false;
+
+    var str2array = function(s) {
+        if (typeof s == 'string' || s instanceof String) {
+            if (s.indexOf(' ') < 0) {
+                a1[0] = s;
+                return a1;
+            } else {
+                return s.split(spaces);
+            }
+        }
+        return s;
+    };
+
+    var trim = function(str) {
+        return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    };
+
+    var addClass = function(node, classStr) {
+        classStr = str2array(classStr);
+        var cls = ' ' + node.className + ' ';
+        for (var i = 0, len = classStr.length, c; i < len; ++i) {
+            c = classStr[i];
+            if (c && cls.indexOf(' ' + c + ' ') < 0) {
+                cls += c + ' ';
+            }
+        }
+        node.className = trim(cls);
+    };
+
+    var removeClass = function(node, classStr) {
+        var cls;
+        if (!node) {
+            throw 'no node provided';
+        }
+        if (classStr !== undefined) {
+            classStr = str2array(classStr);
+            cls = ' ' + node.className + ' ';
+            for (var i = 0, len = classStr.length; i < len; ++i) {
+                cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+            }
+            cls = trim(cls);
+        } else {
+            cls = '';
+        }
+        if (node.className != cls) {
+            node.className = cls;
+        }
+    };
+
+    var getSlideEl = function(slideNo) {
+        if (slideNo > 0) {
+            return slides[slideNo - 1];
+        } else {
+            return null;
+        }
+    };
+
+    var getSlideTitle = function(slideNo) {
+        var el = getSlideEl(slideNo);
+        if (el) {
+            var headers = el.getElementsByTagName('header');
+            if (headers.length > 0) {
+                return el.getElementsByTagName('header')[0].innerText;
+            }
+        }
+        return null;
+    };
+
+    var getSlidePresenterNote = function(slideNo) {
+        var el = getSlideEl(slideNo);
+        if (el) {
+            var n = el.getElementsByClassName('presenter_notes');
+            if (n.length > 0) {
+                return n[0];
+            }
+        }
+        return null;
+    };
+
+    var changeSlideElClass = function(slideNo, className) {
+        var el = getSlideEl(slideNo);
+        if (el) {
+            removeClass(el, 'far-past past current future far-future');
+            addClass(el, className);
+        }
+    };
+
+    var updateSlideClasses = function(updateOther) {
+        window.location.hash = (isPresenterView ? "presenter" : "slide") + currentSlideNo;
+
+        for (var i=1; i<currentSlideNo-1; i++) {
+            changeSlideElClass(i, 'far-past');
+        }
+
+        changeSlideElClass(currentSlideNo - 1, 'past');
+        changeSlideElClass(currentSlideNo, 'current');
+        changeSlideElClass(currentSlideNo + 1, 'future');
+
+        for (i=currentSlideNo+2; i<slides.length+1; i++) {
+            changeSlideElClass(i, 'far-future');
+        }
+
+        highlightCurrentTocLink();
+
+        processContext();
+
+        document.getElementsByTagName('title')[0].innerText = getSlideTitle(currentSlideNo);
+
+        updatePresenterNotes();
+
+        if (updateOther) { updateOtherPage(); }
+    };
+
+    var updatePresenterNotes = function() {
+        if (!isPresenterView) { return; }
+
+        var existingNote = document.getElementById('current_presenter_notes');
+        var currentNote = getSlidePresenterNote(currentSlideNo).cloneNode(true);
+        currentNote.setAttribute('id', 'presenter_note');
+
+        existingNote.replaceChild(currentNote, document.getElementById('presenter_note'));
+    };
+
+    var highlightCurrentTocLink = function() {
+        var toc = document.getElementById('toc');
+
+        if (toc) {
+            var tocRows = toc.getElementsByTagName('tr');
+            for (var i=0; i<tocRows.length; i++) {
+                removeClass(tocRows.item(i), 'active');
+            }
+
+            var currentTocRow = document.getElementById('toc-row-' + currentSlideNo);
+            if (currentTocRow) {
+                addClass(currentTocRow, 'active');
+            }
+        }
+    };
+
+    var updateOtherPage = function() {
+        if (!showingPresenterView) { return; }
+
+        var w = isPresenterView ? window.opener : presenterViewWin;
+        w.postMessage('slide#' + currentSlideNo, '*');
+    };
+
+    var nextSlide = function() {
+        if (currentSlideNo < slides.length) {
+            currentSlideNo++;
+        }
+        updateSlideClasses(true);
+    };
+
+    var prevSlide = function() {
+        if (currentSlideNo > 1) {
+            currentSlideNo--;
+        }
+        updateSlideClasses(true);
+    };
+
+    var showNotes = function() {
+        var notes = getSlideEl(currentSlideNo).getElementsByClassName('notes');
+        for (var i = 0, len = notes.length; i < len; i++) {
+            notes.item(i).style.display = (notesOn) ? 'none':'block';
+        }
+        notesOn = !notesOn;
+    };
+
+    var showSlideNumbers = function() {
+        var asides = document.getElementsByClassName('page_number');
+        var hidden = asides[0].style.display != 'block';
+        for (var i = 0; i < asides.length; i++) {
+            asides.item(i).style.display = hidden ? 'block' : 'none';
+        }
+    };
+
+    var showSlideSources = function() {
+        var asides = document.getElementsByClassName('source');
+        var hidden = asides[0].style.display != 'block';
+        for (var i = 0; i < asides.length; i++) {
+            asides.item(i).style.display = hidden ? 'block' : 'none';
+        }
+    };
+
+    var showToc = function() {
+        if (helpOpened) {
+                showHelp();
+        }
+        var toc = document.getElementById('toc');
+        if (toc) {
+            toc.style.marginLeft = tocOpened ? '-' + (toc.clientWidth + 20) + 'px' : '0px';
+            tocOpened = !tocOpened;
+        }
+        updateOverview();
+    };
+
+    var showHelp = function() {
+        if (tocOpened) {
+                showToc();
+        }
+
+        var help = document.getElementById('help');
+
+        if (help) {
+            help.style.marginLeft = helpOpened ? '-' + (help.clientWidth + 20) + 'px' : '0px';
+            helpOpened = !helpOpened;
+        }
+    };
+
+    var showPresenterView = function() {
+        if (isPresenterView) { return; }
+
+        if (showingPresenterView) {
+            presenterViewWin.close();
+            presenterViewWin = null;
+            showingPresenterView = false;
+        } else {
+            presenterViewWin = open(window.location.pathname + "#presenter" + currentSlideNo, 'presenter_notes',
+                                                                    'directories=no,location=no,toolbar=no,menubar=no,copyhistory=no');
+            showingPresenterView = true;
+        }
+    };
+
+    var switch3D = function() {
+        if (document.body.className.indexOf('three-d') == -1) {
+            document.getElementsByClassName('presentation')[0].style.webkitPerspective = '1000px';
+            document.body.className += ' three-d';
+        } else {
+            window.setTimeout('document.getElementsByClassName(\'presentation\')[0].style.webkitPerspective = \'0\';', 2000);
+            document.body.className = document.body.className.replace(/three-d/, '');
+        }
+    };
+
+    var toggleOverview = function() {
+        if (!overviewActive) {
+            addClass(document.body, 'expose');
+            overviewActive = true;
+            setScale(1);
+        } else {
+            removeClass(document.body, 'expose');
+            overviewActive = false;
+            if (expanded) {
+                setScale(scale);    // restore scale
+            }
+        }
+        processContext();
+        updateOverview();
+    };
+
+    var updateOverview = function() {
+        try {
+            var presentation = document.getElementsByClassName('presentation')[0];
+        } catch (e) {
+            return;
+        }
+
+        if (isPresenterView) {
+            var action = overviewActive ? removeClass : addClass;
+            action(document.body, 'presenter_view');
+        }
+
+        var toc = document.getElementById('toc');
+
+        if (!toc) {
+            return;
+        }
+
+        if (!tocOpened || !overviewActive) {
+            presentation.style.marginLeft = '0px';
+            presentation.style.width = '100%';
+        } else {
+            presentation.style.marginLeft = toc.clientWidth + 'px';
+            presentation.style.width = (presentation.clientWidth - toc.clientWidth) + 'px';
+        }
+    };
+
+    var computeScale = function() {
+        var cSlide = document.getElementsByClassName('current')[0];
+        var sx = cSlide.clientWidth / window.innerWidth;
+        var sy = cSlide.clientHeight / window.innerHeight;
+        return 1 / Math.max(sx, sy);
+    };
+
+    var setScale = function(scale) {
+        var presentation = document.getElementsByClassName('slides')[0];
+        var transform = 'scale(' + scale + ')';
+        presentation.style.MozTransform = transform;
+        presentation.style.WebkitTransform = transform;
+        presentation.style.OTransform = transform;
+        presentation.style.msTransform = transform;
+        presentation.style.transform = transform;
+    };
+
+    var expandSlides = function() {
+        if (overviewActive) {
+            return;
+        }
+        if (expanded) {
+            setScale(1);
+            expanded = false;
+        } else {
+            scale = computeScale();
+            setScale(scale);
+            expanded = true;
+        }
+    };
+
+    var showContext = function() {
+        try {
+            var presentation = document.getElementsByClassName('slides')[0];
+            removeClass(presentation, 'nocontext');
+        } catch (e) {}
+    };
+
+    var hideContext = function() {
+        try {
+            var presentation = document.getElementsByClassName('slides')[0];
+            addClass(presentation, 'nocontext');
+        } catch (e) {}
+    };
+
+    var processContext = function() {
+        if (hiddenContext) {
+            hideContext();
+        } else {
+            showContext();
+        }
+    };
+
+    var toggleContext = function() {
+        hiddenContext = !hiddenContext;
+        processContext();
+    };
+
+    var toggleBlank = function() {
+        blank_elem = document.getElementById('blank');
+
+        blank_elem.style.display = blanked ? 'none' : 'block';
+
+        blanked = !blanked;
+    };
+
+    var isModifierKey = function(keyCode) {
+        switch (keyCode) {
+            case 16: // shift
+            case 17: // ctrl
+            case 18: // alt
+            case 91: // command
+                return true;
+                break;
+            default:
+                return false;
+                break;
+        }
+    };
+
+    var checkModifierKeyUp = function(event) {
+        if (isModifierKey(event.keyCode)) {
+            modifierKeyDown = false;
+        }
+    };
+
+    var checkModifierKeyDown = function(event) {
+        if (isModifierKey(event.keyCode)) {
+            modifierKeyDown = true;
+        }
+    };
+
+    var handleBodyKeyDown = function(event) {
+        switch (event.keyCode) {
+            case 13: // Enter
+                if (overviewActive) {
+                    toggleOverview();
+                }
+                break;
+            case 27: // ESC
+                toggleOverview();
+                break;
+            case 37: // left arrow
+            case 33: // page up
+                prevSlide();
+                break;
+            case 39: // right arrow
+            case 32: // space
+            case 34: // page down
+                nextSlide();
+                break;
+            case 50: // 2
+                if (!modifierKeyDown) {
+                        showNotes();
+                }
+                break;
+            case 51: // 3
+                if (!modifierKeyDown && !overviewActive) {
+                    switch3D();
+                }
+                break;
+            case 190: // .
+            case 48: // 0
+            case 66: // b
+                if (!modifierKeyDown && !overviewActive) {
+                    toggleBlank();
+                }
+                break;
+            case 67: // c
+                if (!modifierKeyDown && !overviewActive) {
+                    toggleContext();
+                }
+                break;
+            case 69: // e
+                if (!modifierKeyDown && !overviewActive) {
+                    expandSlides();
+                }
+                break;
+            case 72: // h
+                showHelp();
+                break;
+            case 78: // n
+                if (!modifierKeyDown && !overviewActive) {
+                    showSlideNumbers();
+                }
+                break;
+            case 80: // p
+                if (!modifierKeyDown && !overviewActive) {
+                    showPresenterView();
+                }
+                break;
+            case 83: // s
+                if (!modifierKeyDown && !overviewActive) {
+                    showSlideSources();
+                }
+                break;
+            case 84: // t
+                showToc();
+                break;
+        }
+    };
+
+    var handleWheel = function(event) {
+        if (tocOpened || helpOpened || overviewActive) {
+            return;
+        }
+
+        var delta = 0;
+
+        if (!event) {
+            event = window.event;
+        }
+
+        if (event.wheelDelta) {
+            delta = event.wheelDelta/120;
+            if (window.opera) delta = -delta;
+        } else if (event.detail) {
+            delta = -event.detail/3;
+        }
+
+        if (delta && delta <0) {
+            nextSlide();
+        } else if (delta) {
+            prevSlide();
+        }
+    };
+
+    var addSlideClickListeners = function() {
+        for (var i=0; i < slides.length; i++) {
+            var slide = slides.item(i);
+            slide.num = i + 1;
+            slide.addEventListener('click', function(e) {
+                if (overviewActive) {
+                    currentSlideNo = this.num;
+                    toggleOverview();
+                    updateSlideClasses(true);
+                    e.preventDefault();
+                }
+                return false;
+            }, true);
+        }
+    };
+
+    var addRemoteWindowControls = function() {
+        window.addEventListener("message", function(e) {
+            if (e.data.indexOf("slide#") != -1) {
+                    currentSlideNo = Number(e.data.replace('slide#', ''));
+                    updateSlideClasses(false);
+            }
+        }, false);
+    };
+
+    var addTouchListeners = function() {
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].pageX;
+        }, false);
+        document.addEventListener('touchend', function(e) {
+            var pixelsMoved = touchStartX - e.changedTouches[0].pageX;
+            var SWIPE_SIZE = 150;
+            if (pixelsMoved > SWIPE_SIZE) {
+                nextSlide();
+            }
+            else if (pixelsMoved < -SWIPE_SIZE) {
+             prevSlide();
+            }
+        }, false);
+    };
+
+    var addTocLinksListeners = function() {
+        var toc = document.getElementById('toc');
+        if (toc) {
+            var tocLinks = toc.getElementsByTagName('a');
+            for (var i=0; i < tocLinks.length; i++) {
+                tocLinks.item(i).addEventListener('click', function(e) {
+                    currentSlideNo = Number(this.attributes['href'].value.replace('#slide', ''));
+                    updateSlideClasses(true);
+                    e.preventDefault();
+                }, true);
+            }
+        }
+    };
+
+    // initialize
+
+    (function() {
+        if (window.location.hash == "") {
+            currentSlideNo = 1;
+        } else if (window.location.hash.indexOf("#presenter") != -1) {
+            currentSlideNo = Number(window.location.hash.replace('#presenter', ''));
+            isPresenterView = true;
+            showingPresenterView = true;
+            presenterViewWin = window;
+            addClass(document.body, 'presenter_view');
+        } else {
+            currentSlideNo = Number(window.location.hash.replace('#slide', ''));
+        }
+
+        document.addEventListener('keyup', checkModifierKeyUp, false);
+        document.addEventListener('keydown', handleBodyKeyDown, false);
+        document.addEventListener('keydown', checkModifierKeyDown, false);
+        document.addEventListener('DOMMouseScroll', handleWheel, false);
+
+        window.onmousewheel = document.onmousewheel = handleWheel;
+        window.onresize = expandSlides;
+
+        for (var i = 0, el; el = slides[i]; i++) {
+            addClass(el, 'slide far-future');
+        }
+        updateSlideClasses(false);
+
+        // add support for finger events (filter it by property detection?)
+        addTouchListeners();
+
+        addTocLinksListeners();
+
+        addSlideClickListeners();
+
+        addRemoteWindowControls();
+    })();
+}
+
+    </script>
+    
+    
+    <!-- /Javascripts -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32409795-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: title.md -->
+      <div class="slide-wrapper">
+        <div class="slide home has_notes">
+          <div class="inner">
+            
+            <header><h1>A la chasse aux faux semblants</h1></header>
+            
+            
+            <section><h2>Pascal Grange - Luc Mazardo</h2>
+<p class="notes">Nous avons essayé d'appliquer le manuel à la lettre : daily, démo/rétro, itérations courtes, post-its, product owner ... . Mais tout n'a pas toujour fonctionné comme sur des roulettes.</p>
+<p class="notes">Nous allons faire un retour d'expériences sur nos pratiques «agiles» des années précédentes. </p>
+<p class="notes">Au départ, c'était quelques personnes qui faisaient des trucs bizarres dans leur coin, sur les murs de leurs bureaux. Ils faisaient une réunion journalière à 15h00 pendant 16minutes 22 secondes. Ces gens là travaillaient systématiquement à 2, ils prennaient du temps pour essayer des trucs sur leur projet. ça n'avait pas de nom</p>
+<p class="notes">2/3 ans après, on a un outil qui centralise les backlog product de toutes les équipes dans un workflow nommé "agile project". Tout le monde utilisent des post-its dans les réunions, fait des démos, des rétros des dailys, du pair-programming, des tests. On exige même que nos sous-traitants fassent la même chose, et c'est contractuel.</p>
+<p class="notes">Malgrès cela, on ne réussi pas tous nos projets... qu'est-ce qui fait que, parfois cela fonctionne, parfois cela échoue ? Ou pour le dire autrement...</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="title.md">title.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro/03_bon-mauvais.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage notitle has_notes">
+          <div class="inner">
+            
+            <header><h1>i</h1></header>
+            
+            
+            <section><h2><img alt="le bon et le mauvais agiliste" src="images/le-bon-le-mauvais-chasseur-small-2.jpg" /></h2>
+<p class="notes">mais au fond, quelle différence y-a-t-il entre le bon et le mauvais agiliste ?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro/03_bon-mauvais.md">01_intro/03_bon-mauvais.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro/08_disclaimer.md -->
+      <div class="slide-wrapper">
+        <div class="slide disclaimer">
+          <div class="inner">
+            
+            <header><h1>Disclaimer</h1></header>
+            
+            
+            <section><ul>
+<li>
+<p>Cette présentation n'est pas une éloge de l'agilité</p>
+</li>
+<li>
+<p>Cette présentation n'est pas une critique de l'agilité</p>
+</li>
+<li>
+<p>Cette présentation n'est pas une leçon sur comment bien mettre en place l'agilité</p>
+</li>
+<li>
+<p>Cette présention est un retour d'expérience</p>
+</li>
+<li>
+<p>Cette présentation se focalise sur nos dérives... mais la vie n'est pas si noire, rassurez-vous</p>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro/08_disclaimer.md">01_intro/08_disclaimer.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/01_au-commencement.md -->
+      <div class="slide-wrapper">
+        <div class="slide subtitle  has_notes">
+          <div class="inner">
+            
+            <header><h1>Cela a commencé...</h1></header>
+            
+            
+            <section><h2>Par un client, à qui on ne livrait pas ce qu'il voulait</h2>
+<p class="notes">stories CAPICA</p>
+<p class="notes">livraisons fréquentes</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/01_au-commencement.md">021_historique/01_au-commencement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/01_au-commencement.md -->
+      <div class="slide-wrapper">
+        <div class="slide subtitle has_notes">
+          <div class="inner">
+            
+            <header><h1>Cela a commencé...</h1></header>
+            
+            
+            <section><h2>Par trop d'anomalies en recette</h2>
+<p class="notes">TDD</p>
+<p class="notes">intégration continue</p>
+<p class="notes">en 3 mois, le nombre d'anomalies avait baissé, la couverture du code par les tests étaient de 80% </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/01_au-commencement.md">021_historique/01_au-commencement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/01_au-commencement.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigbullet center has_notes">
+          <div class="inner">
+            
+            <header><h1>Solutions mises en place</h1></header>
+            
+            
+            <section><ul>
+<li>Expression du besoin en user story</li>
+<li>Augmenter la fréquence de livraison</li>
+</ul>
+<p class="notes">Utilisation des CAPICAs C pour Contexte, A pour Acteur, P pour Problème, I pour Interaction, C pour Conséquence, A pour Alternative</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/01_au-commencement.md">021_historique/01_au-commencement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/01_au-commencement.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigbullet center">
+          <div class="inner">
+            
+            <header><h1>Solutions mises en place</h1></header>
+            
+            
+            <section><ul>
+<li>Mise en place du TDD</li>
+<li>Intégration continue</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/01_au-commencement.md">021_historique/01_au-commencement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/01_au-commencement.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>un client satisfait</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/01_au-commencement.md">021_historique/01_au-commencement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/03_accompagnement.md -->
+      <div class="slide-wrapper">
+        <div class="slide manybullets has_notes">
+          <div class="inner">
+            
+            <header><h1>Accompagnement</h1></header>
+            
+            
+            <section><ul>
+<li>Formations<ul>
+<li>TDD, certification ScrumMaster, recueil du besoin, core protocols</li>
+</ul>
+</li>
+<li>Conférences et non conférences<ul>
+<li>XP days, Agile France, Agile Tour, AYE, Qcon, Agile Open</li>
+</ul>
+</li>
+<li>Auto-formation<ul>
+<li>4h par mois pour participer à des dojos, des ateliers...</li>
+</ul>
+</li>
+<li>Livres<ul>
+<li>Budget illimité</li>
+</ul>
+</li>
+<li>Consultants<ul>
+<li>les meilleurs </li>
+</ul>
+</li>
+</ul>
+<p class="notes">FORMATIONS TDD, scrum, recceuil besoins (CAPICA), core protocols</p>
+<p class="notes">CONFERENCES XP days, Agile France, Agile Tour, Agile Open (non conférence), EYES, Qcon</p>
+<p class="notes">AUTO-FORMATION 4h par mois pour chaque dev pour faire ce qu'il veut (atelier jeudi 11h-12h30)</p>
+<p class="notes">LIVRES budget illimité</p>
+<p class="notes">BLAGUE Tichets resto, mutuelle, RTT, CET, journées enfant malade, intéressement, participation, sites à Lille, Epinal, Tours, Bordeaux et 3 en région parisienne et à Paris, PRIME de COOPTATION</p>
+<p class="notes">CONSULTANTS techniques/gestion au quotidien sur les projets... entre 10 et 15</p>
+<p class="notes">les meilleurs consultants, d'ailleurs nous avons croisé 5/6 aujourd'hui !</p>
+<p class="notes">aujourd'hui pratiquement tous les développements sont agiles. Ils se disent Agile, ils mettent en oeuvre une ou plusieurs pratiques dites agiles.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/03_accompagnement.md">021_historique/03_accompagnement.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 021_historique/10_mais-pourtant.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Mais pourtant...</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="021_historique/10_mais-pourtant.md">021_historique/10_mais-pourtant.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03_derive-couverture/01_fail_couverture.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail has_notes">
+          <div class="inner">
+            
+            <header><h1>barre <span class="red">verte</span></h1></header>
+            
+            
+            <section><h2>#fail</h2>
+<p class="notes">Est-ce que vous faites du TDD ? Avez vous des métriques en place sur vos projets ? de couverture de code ? (jenkins)</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03_derive-couverture/01_fail_couverture.md">03_derive-couverture/01_fail_couverture.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03_derive-couverture/01_fail_couverture.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigbullet has_notes">
+          <div class="inner">
+            
+            
+            <section><ul>
+<li>Des tests <span class="green"><strong>verts</strong></span></li>
+<li>Intégration continue automatisée</li>
+<li>Métriques sur le code</li>
+<li>80% du code couvert par les tests</li>
+</ul>
+<p class="notes">faire des tests sans intention exigeance de taux de couverture de tests sur le code 80% objectifs atteints </p>
+<p class="notes">les tests passent non robustes, non instantannés un build avec les tests 30 minutes, inter-dépendant... </p>
+<p class="notes">Un test ne passe pas on le commente pas compris l'intention de faire des tests</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03_derive-couverture/01_fail_couverture.md">03_derive-couverture/01_fail_couverture.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03_derive-couverture/02_assert.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code center-code has_notes">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nd">@Test</span>
+<span class="lineno">2</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAdminAdvanceBean</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">3</span>     <span class="n">assertNotNull</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">adminAdvanceBean</span><span class="o">);</span>
+<span class="lineno">4</span>     <span class="n">assertNotNull</span><span class="o">(</span><span class="k">new</span> <span class="n">AdminAdvanceBean</span><span class="o">());</span>
+<span class="lineno">5</span> <span class="o">}</span>
+</pre></div>
+
+<p class="notes">[avoir l'air fier de ce code]</p>
+<p class="notes">tout le monde ne maîtrise pas TDD</p>
+<p class="notes">est-ce que ceux qui maîtrisent peuvent expliquer pourquoi ceci est un beau test ?</p>
+<p class="notes">[si pas de réponse] c'est un des plus horribles tests que j'ai vu :(</p>
+<p class="notes">ligne 3 test qu'un champ du test est différent de null ??? A quoi ça sert ? Pourquoi est-ce qu'on ne crée pas l'objet directement ici plutôt que dans le setup ? Si on est obligé, pourquoi est-ce qu'on revérifie ici qu'il est différent de null alors qu'on sait que le setup est toujours executé ? Au pire c'est qu'on veut vérifier une pré-condition du test... mais même comme ça, ça n'a pas de sens puisqu'on ne l'utilise psa dans le test cet objet.</p>
+<p class="notes">ligne 4 on vérifie que lorsqu'on crée un nouvel objet, il n'est pas nul... mais il ne risque pas d'être nul puisqu'on le crée... et en java, new ne peut jamais retourner null. </p>
+<p class="notes">ligne 4 En C++ ça peut arriver. Si par exemple plus de mémoire alors new peut retourner null. On peut supposer que c'est un développeur C++ qui n'a pas l'habitude de Java. Sauf qu'on n'écrirait pas un test comme ça même en C++. On ne teste rien. Le cas à gérer c'est le cas où new retourne null et justement c'est le test qui le gère, pas le code qu'on teste.</p>
+<p class="notes">ligne 4 A la limite on peut supposer que ce test vérifie que le constructeur ne lève pas d'exception. Mais dans ce cas, inutile de tester si on retourne quelque chose différent de null. Il suffit d'appeler le constructeur et de constater qu'aucune exception n'est levée. Mais ça ne semble pas être l'excuse de ce code.</p>
+<p class="notes">[section faire du chiffre] ligne 4 en fait le cdp a exigé un taux de couverture du code par les tests de 80%... Félicitations ! Objectif atteint.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03_derive-couverture/02_assert.md">03_derive-couverture/02_assert.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03_derive-couverture/02_assert.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>La métrique était devenue plus importante que la maintenabilité du code</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03_derive-couverture/02_assert.md">03_derive-couverture/02_assert.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail has_notes">
+          <div class="inner">
+            
+            <header><h1><span class="red">livrer</span> fréquemment</h1></header>
+            
+            
+            <section><h2>#fail</h2>
+<p class="notes">et vous, vous livrez à quelle fréquence ?</p>
+<p class="notes">vous livrez quoi ? et à qui ? </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage notitle has_notes">
+          <div class="inner">
+            
+            <header><h1>i</h1></header>
+            
+            
+            <section><p class="notes">un PO qui avait les mains libres... c'est rare !</p>
+<p class="notes">experts vidéo, experts flash, experts backend, ergonomes et designers tous réunis !</p>
+<p class="notes">On avait même des montées en compétences transverses</p>
+<p class="notes">des itérations de 3 semaines -&gt; planning / démo / rétro</p>
+<p class="notes">des rencontres fréquentes entre l'équipe de développement et le PO</p>
+<p class="notes">une équipe motivée</p>
+<p class="notes">une montée en puissance progressive de l'équipe pour atteindre 20 personnes en scrum de scrum avec un backlog commun</p>
+<p class="notes">une version initiale prête en 3 mois avec une équipe de 5 personnes</p>
+<p class="notes">des livraisons fréquentes</p>
+<p><img alt="c'était merveilleux" src="images/merveilleux-small.jpg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage">
+          <div class="inner">
+            
+            <header><h1>9 mois de développement</h1></header>
+            
+            
+            <section><p><img alt="on a bien mesure l'avancement" src="images/welles.svg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage has_notes">
+          <div class="inner">
+            
+            <header><h1>Intégration douloureuse</h1></header>
+            
+            
+            <section><p class="notes">l'intégration a duré 2 mois</p>
+<p><img alt="on avait juste oublié un truc" src="images/welles-not-done.svg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide long-title">
+          <div class="inner">
+            
+            <header><h1>Incrément <strong>NON</strong> livrable</h1></header>
+            
+            
+            <section><h2>Impossible de proposer à notre client d'ouvrir le service</h2>
+<blockquote>
+<p>Est-ce qu'il vaut mieux que j'ouvre mon service maintenant ou terminer ce truc d'abord ?</p>
+</blockquote>
+<h2><strong>Refaire le design from scratch</strong></h2>
+<blockquote>
+<p>Ouf ! On l'a echapé belle ! De toute façon on pourra pas livrer avant 1 ou 2 mois..</p>
+</blockquote>
+<h2>Un client trop gentil (ou trop riche <em>(ou mal conseillé)</em>) ?</h2>
+<blockquote>
+<p>C'est pas grave en attendant on va en profiter pour...</p>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-livrer-frequemment/01_welles.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Les fonctionnalités étaient devenues plus importantes que le produit</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-livrer-frequemment/01_welles.md">04_derive-livrer-frequemment/01_welles.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-contractualisation/03_contractualisation_1.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail has_notes">
+          <div class="inner">
+            
+            <header><h1>contract <span class="green">negotiation</span> over customer <span class="red">collaboration</span></h1></header>
+            
+            
+            <section><h2>#fail</h2>
+<p class="notes">est-ce que vous faites des users stories ?  à quoi cela vous sert ?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-contractualisation/03_contractualisation_1.md">04_derive-contractualisation/03_contractualisation_1.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-contractualisation/03_contractualisation_1.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigbullet">
+          <div class="inner">
+            
+            
+            <section><ul>
+<li>
+<p>Service d'assistance téléphonique</p>
+</li>
+<li>
+<p>Besoin de connaître le numéro de l'appelant</p>
+</li>
+<li>
+<p>Le demander si besoin</p>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-contractualisation/03_contractualisation_1.md">04_derive-contractualisation/03_contractualisation_1.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-contractualisation/03_contractualisation_5.md -->
+      <div class="slide-wrapper">
+        <div class="slide iframe">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<iframe src='04_derive-contractualisation/FrontPage.App3900Tn53456.html' class="baseStyles" scrolling="no"></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-contractualisation/03_contractualisation_5.md">04_derive-contractualisation/03_contractualisation_5.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-contractualisation/03_contractualisation_5.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>La validation de la story était devenue plus importante que la fonctionnalité elle-même</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-contractualisation/03_contractualisation_5.md">04_derive-contractualisation/03_contractualisation_5.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-contractualisation/10_scrum-update.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigcite">
+          <div class="inner">
+            
+            <header><h1>Scrum update 2011</h1></header>
+            
+            
+            <section><blockquote>
+<p>Development Teams do not commit to completing the work planned during 
+a Sprint Planning Meeting.  The Development Team creates a forecast of 
+work it believes will be done, but that forecast <strong>will change as more 
+becomes known throughout the Sprint</strong>.</p>
+</blockquote>
+<p>http://www.scrum.org/news/tag/scrum-update</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-contractualisation/10_scrum-update.md">04_derive-contractualisation/10_scrum-update.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/01_organisation.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail">
+          <div class="inner">
+            
+            <header><h1>réussir le <span class="red">sprint</span></h1></header>
+            
+            
+            <section><h2>#fail</h2></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/01_organisation.md">04_derive-vocabulaire/01_organisation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/01_organisation.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage has_notes">
+          <div class="inner">
+            
+            
+            <section><p><img alt="Rituels du projet" src="images/emploi-du-temps-sprint.svg" /><br />
+</p>
+<p class="notes">Sprints d'une semaine</p>
+<p class="notes">Engagement</p>
+<p class="notes">Sprint</p>
+<p class="notes">Démo</p>
+<p class="notes">Rétro</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/01_organisation.md">04_derive-vocabulaire/01_organisation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/02_inquietude.md -->
+      <div class="slide-wrapper">
+        <div class="slide notitle manybullets has_notes">
+          <div class="inner">
+            
+            <header><h1>o</h1></header>
+            
+            
+            <section><ul>
+<li>Impression de lenteur</li>
+</ul>
+<p>le client :</p>
+<blockquote>
+<p>pour un sprint, vous n'allez pas très vite</p>
+</blockquote>
+<ul>
+<li>Importance de l'engagement</li>
+</ul>
+<p>le client :</p>
+<blockquote>
+<p>vous n'avez pas respecté votre engagement</p>
+</blockquote>
+<p>l'équipe :</p>
+<blockquote>
+<p>on n'a pas respecté notre engagement :(</p>
+</blockquote>
+<p class="notes">Faire du point</p>
+<p class="notes">S'engager sur moins</p>
+<p class="notes">validation laxiste des stories -&gt; mauvaise visu reste à faire</p>
+<p class="notes">sur-spécification des stories pour être sûr et certain de la terminer à temps</p>
+<p class="notes">Ne pas prévoir plus que ce qu'on est certain de terminer -&gt; risque fin de projet</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/02_inquietude.md">04_derive-vocabulaire/02_inquietude.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/02_inquietude.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Réussir le sprint était devenu plus important que réussir le projet</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/02_inquietude.md">04_derive-vocabulaire/02_inquietude.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/03_adaptations.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage has_notes">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<p><img alt="Rituels du projet" src="images/emploi-du-temps-iteration.svg" /><br />
+</p>
+<p class="notes">Engagement -&gt; planning</p>
+<p class="notes">sprint -&gt; itération</p>
+<p class="notes">changement de vocabulaire -&gt; changement de culture</p>
+<p class="notes">des individus objectifs c'est une équipe courageuse</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/03_adaptations.md">04_derive-vocabulaire/03_adaptations.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 04_derive-vocabulaire/03_adaptations.md -->
+      <div class="slide-wrapper">
+        <div class="slide bigcite">
+          <div class="inner">
+            
+            <header><h1>Scrum update 2011</h1></header>
+            
+            
+            <section><blockquote>
+<p>Development Teams <strong>do not commit</strong> to completing the work <strong>planned</strong> during 
+a Sprint Planning Meeting.  The Development Team creates a forecast of 
+work it believes will be done, but that forecast will change as more 
+becomes known throughout the Sprint.</p>
+</blockquote>
+<p>http://www.scrum.org/news/tag/scrum-update</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="04_derive-vocabulaire/03_adaptations.md">04_derive-vocabulaire/03_adaptations.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 09_derive-cr-activite/01_daily.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail has_notes">
+          <div class="inner">
+            
+            <header><h1>compte rendu d'activité <span class="green">quotidien</span></h1></header>
+            
+            
+            <section><p class="notes">les gens sont debouts</p>
+<h2>#fail</h2></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="09_derive-cr-activite/01_daily.md">09_derive-cr-activite/01_daily.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 09_derive-cr-activite/01_daily.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail">
+          <div class="inner">
+            
+            <header><h1>Celui qui parle, celui qui réfléchit</h1></header>
+            
+            
+            <section><h2>celui qui rêve...</h2>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="09_derive-cr-activite/01_daily.md">09_derive-cr-activite/01_daily.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 09_derive-cr-activite/01_daily.md -->
+      <div class="slide-wrapper">
+        <div class="slide image-withoutborder">
+          <div class="inner">
+            
+            
+            <section><p><img alt="ce que j'ai terminé hier, ce que je vais terminé aujourd'hui, ce qui me bloque" src="images/daily-small.jpg" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="09_derive-cr-activite/01_daily.md">09_derive-cr-activite/01_daily.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 09_derive-cr-activite/01_daily.md -->
+      <div class="slide-wrapper">
+        <div class="slide notitle bigbullet has_notes">
+          <div class="inner">
+            
+            <header><h1>0</h1></header>
+            
+            
+            <section><ul>
+<li>1 par jour</li>
+<li>15 minutes</li>
+<li>3 questions</li>
+</ul>
+<blockquote>
+<p>Qu'est-ce que j'ai fait depuis le dernier daily ?</p>
+<p>Qu'est-ce que j'ai l'intention de faire d'ici le prochain daily ?</p>
+<p>Qu'est-ce qui me bloque ?</p>
+</blockquote>
+<ul>
+<li>Point de synchronisation d'une équipe auto-organisée</li>
+</ul>
+<p class="notes">les 3 questions Qui : l'équipe de développement, scrummaster, le client, parfois le manager. Il ne faut pas perdre de vue l'objectif du daily qui est : - d'être un point de visibilité journalier des encours par l'équipe.  Il est important que tous les participants recoivent une information accessible. =&gt; aller à l'essentiel, être concis synthétique - d'identifier au plus tôt les points de blocage</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="09_derive-cr-activite/01_daily.md">09_derive-cr-activite/01_daily.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 09_derive-cr-activite/01_daily.md -->
+      <div class="slide-wrapper">
+        <div class="slide fail
+.notes: Le daily n'est pas une justification de l'activité de la veille mais plutôt un moment de partage d'informations utiles pour les autres. Le daily n'est pas l'énoncé de l'agenda des réunions mais plutôt l'annonce de sa disponibilité pour la journée. ">
+          <div class="inner">
+            
+            <header><h1>La cérémonie devient plus importante que les interactions entre les individus</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="09_derive-cr-activite/01_daily.md">09_derive-cr-activite/01_daily.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="page_number">
+              /44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 10_conclusion/002_culte-cargo-wikipedia.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_notes">
+          <div class="inner">
+            
+            <header><h1>Le culte du cargo</h1></header>
+            
+            
+            <section><blockquote>
+<p>Des indigènes, ayant constaté que les radio-opérateurs des troupes au sol semblaient obtenir l’arrivée de navires ou le parachutage de vivres et de médicaments simplement en les demandant dans leur poste radio-émetteur, eurent l’idée de les imiter et construisirent, de leur mieux, de fausses cabines d’opérateur-radio — avec des postes fictifs — dans lesquels ils demandaient eux-aussi — dans de faux micros — l’envoi de vivres, médicaments et autres équipements dont ils pouvaient avoir besoin. Plus tard, ils construiront même de fausses pistes d'atterrissage en attendant que des avions viennent y décharger leur cargaison.</p>
+</blockquote>
+<p><img alt="cargo cult plane" src="images/Cargo-Cult.jpg" /></p>
+<p><a href="![http://fr.wikipedia.org/wiki/Culte_du_cargo">http://fr.wikipedia.org/wiki/Culte_du_cargo</a></p>
+<p class="notes">ne sommes-nous pas parfois conduits à appliquer des méthodes par mimétisme, sans réelle réflexion sur le bien-fondé de nos démarches, en pratiquant une sorte de pensée magique alias pensée sauvage5 ?</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="10_conclusion/002_culte-cargo-wikipedia.md">10_conclusion/002_culte-cargo-wikipedia.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 10_conclusion/002_culte-cargo-wikipedia.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Pourquoi fait-on les choses ?</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="10_conclusion/002_culte-cargo-wikipedia.md">10_conclusion/002_culte-cargo-wikipedia.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="page_number">
+              /44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 10_conclusion/01_agile-manifesto-orig_fr.md -->
+      <div class="slide-wrapper">
+        <div class="slide iframe">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<iframe src='10_conclusion/agile-manifesto-orig.html' class="baseStyles" scrolling="no"></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="10_conclusion/01_agile-manifesto-orig_fr.md">10_conclusion/01_agile-manifesto-orig_fr.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 10_conclusion/02_agile-manifesto_fr.md -->
+      <div class="slide-wrapper">
+        <div class="slide iframe">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<iframe src='10_conclusion/agile-manifesto_fr.html' class="baseStyles" scrolling="no"></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="10_conclusion/02_agile-manifesto_fr.md">10_conclusion/02_agile-manifesto_fr.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 10_conclusion/03_agile-manifesto.md -->
+      <div class="slide-wrapper">
+        <div class="slide iframe">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<iframe src='10_conclusion/agile-manifesto.html' class="baseStyles" scrolling="no"></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="10_conclusion/03_agile-manifesto.md">10_conclusion/03_agile-manifesto.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 11_annexes/vocabulaire.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><h1></h1></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="11_annexes/vocabulaire.md">11_annexes/vocabulaire.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 11_annexes/vocabulaire.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><h1></h1></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="11_annexes/vocabulaire.md">11_annexes/vocabulaire.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 11_annexes/vocabulaire.md -->
+      <div class="slide-wrapper">
+        <div class="slide fullimage">
+          <div class="inner">
+            
+            
+            <section><h1></h1>
+<p><img alt="Rituels du projet" src="images/emploi-du-temps-semaine.svg" /></p>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="11_annexes/vocabulaire.md">11_annexes/vocabulaire.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/44
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">A la chasse aux faux semblants</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">i</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Disclaimer</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Cela a commencé...</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Cela a commencé...</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Solutions mises en place</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Solutions mises en place</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">un client satisfait</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Accompagnement</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Mais pourtant...</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">barre <span class="red">verte</span></a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">-</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">-</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">La métrique était devenue plus importante que la maintenabilité du code</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15"><span class="red">livrer</span> fréquemment</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">i</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">9 mois de développement</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Intégration douloureuse</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Incrément <strong>NON</strong> livrable</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Les fonctionnalités étaient devenues plus importantes que le produit</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">contract <span class="green">negotiation</span> over customer <span class="red">collaboration</span></a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">-</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">-</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">La validation de la story était devenue plus importante que la fonctionnalité elle-même</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Scrum update 2011</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">réussir le <span class="red">sprint</span></a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">-</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">o</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">Réussir le sprint était devenu plus important que réussir le projet</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">-</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Scrum update 2011</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">compte rendu d'activité <span class="green">quotidien</span></a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">Celui qui parle, celui qui réfléchit</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">-</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">0</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">La cérémonie devient plus importante que les interactions entre les individus</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">Le culte du cargo</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">Pourquoi fait-on les choses ?</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">-</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">-</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">-</a></th>
+        <td><a href="#slide41">41</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-42">
+        <th><a href="#slide42">-</a></th>
+        <td><a href="#slide42">42</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-43">
+        <th><a href="#slide43">-</a></th>
+        <td><a href="#slide43">43</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">-</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
